@@ -5,7 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp3"
         mc:Ignorable="d"
-        Title="InfoWindow" Height="300" Width="300">
+        Title="Информация о сотруднике" Height="320" Width="300" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Background="#FF0D1117" Foreground="White">
+    <Window.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="Margin" Value="8" />
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="MinWidth" Value="45" />
+        </Style>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition />
@@ -19,27 +27,27 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="100" />
-            <ColumnDefinition />
+            <ColumnDefinition Width="19*" />
+            <ColumnDefinition Width="81*"/>
         </Grid.ColumnDefinitions>
-        <TextBlock Text="ID работника:" Margin="0,0,0,35" Grid.RowSpan="2" />
-        <TextBlock Text="Фамилия:" Grid.Row="1" />
-        <TextBlock Text="Имя:" Grid.Row="1" Margin="0,35,0,35" Grid.RowSpan="3" />
-        <TextBlock Text="Отчество:" Grid.Row="3"/>
-        <TextBlock Text="Дата рождения:" Grid.Row="3" Margin="0,35,0,35" Grid.RowSpan="3" />
-        <TextBlock Text="Телефон:" Grid.Row="5" />
-        <TextBlock Text="Отдел:" Grid.Row="5" Margin="0,35,0,35" Grid.RowSpan="3" />
+        <TextBlock Text="ID работника:" Margin="8,8,8,8"/>
+        <TextBlock Text="Фамилия:" Grid.Row="1" Margin="8,8,8,8" />
+        <TextBlock Text="Имя:" Grid.Row="2" Margin="8,8,8,8"/>
+        <TextBlock Text="Отчество:" Grid.Row="3" Margin="8,8,8,8"/>
+        <TextBlock Text="Дата рождения:" Grid.Row="4" Margin="8,8,8,8"/>
+        <TextBlock Text="Телефон:" Grid.Row="5" Margin="8,8,8,8" />
+        <TextBlock Text="Отдел:" Grid.Row="6" Margin="8,8,8,8"/>
 
-        <TextBlock Text="{Binding Id_pers}" Grid.Column="1" Margin="0,0,0,35" Grid.RowSpan="2" />
-        <TextBlock Text="{Binding Surname}" Grid.Column="1" Margin="0,35,0,35" Grid.Row="1" />
-        <TextBlock Text="{Binding Name}" Grid.Column="1" Grid.Row="1" Margin="0,35,0,35" Grid.RowSpan="3" />
-        <TextBlock Text="{Binding Patronymic}" Grid.Column="1" Margin="0,35,0,35" Grid.Row="3" />
-        <TextBlock Text="{Binding Date_of_Birth}" Grid.Column="1" Grid.Row="3" Margin="0,35,0,35" Grid.RowSpan="3" />
-        <TextBlock Text="{Binding Phone}" Grid.Column="1" Margin="0,35,0,35" Grid.Row="5" />
-        <TextBlock Text="{Binding Department}" Grid.Column="1" Grid.Row="5" Margin="0,35,0,35" Grid.RowSpan="3" />
+        <TextBlock Text="{Binding Id_pers}" Grid.Column="1" Grid.ColumnSpan="2" Margin="8,8,8,8"/>
+        <TextBlock Text="{Binding Surname}" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Margin="8,8,8,8" />
+        <TextBlock Text="{Binding Name}" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" Margin="8,8,8,8"  />
+        <TextBlock Text="{Binding Patronymic}" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2" Margin="8,8,8,8" />
+        <TextBlock Text="{Binding Date_of_Birth}" Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="2" Margin="8,8,8,8"/>
+        <TextBlock Text="{Binding Phone}" Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="2" Margin="8,8,8,8" />
+        <TextBlock Text="{Binding Department}" Grid.Column="1" Grid.Row="6" Grid.ColumnSpan="2" Margin="8,8,8,8"/>
 
-
-        <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Grid.Row="7" Grid.Column="1" Width="66">
-            <Button IsDefault="True"  Click="Accept_Click" Margin="10,0,10,10" Height="25" Width="30" >OK</Button>
+        <StackPanel Orientation="Horizontal" Grid.Row="6" Grid.Column="2" Width="50" Margin="12,33,0,12" Grid.RowSpan="2" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Button IsDefault="True"  Click="Accept_Click" Margin="0,0, 0,0" Height="25" Width="25" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#FF0D1117" BorderBrush="#FF13EB08" Foreground="White">OK</Button>
         </StackPanel>
     </Grid>
 </Window>
