@@ -1,28 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text.Json;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using Microsoft.EntityFrameworkCore;
-
+using System.IO;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace WpfApp3
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         SqlLiteDbContext db = new SqlLiteDbContext();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -119,6 +107,17 @@ namespace WpfApp3
                     usersList.Items.Refresh();
                 }
             }
+        }
+
+        private void Save_Click(object sender, RoutedEventArgs e)
+        {
+            StreamWriter file = File.CreateText("Employees.json");
+            List <string> list = new List<string>();
+            foreach (User u in db.Users) {
+                string JSON = JsonSerializer.Serialize(u, typeof(User));
+                file.WriteLine(JSON);
+            }
+            file.Close();
         }
     }
 }

@@ -15,9 +15,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace WpfApp3
 {
-    /// <summary>
-    /// Логика взаимодействия для InfoWindow.xaml
-    /// </summary>
+
     public partial class InfoWindow : Window
     {
         SqlLiteDbContext db = new SqlLiteDbContext();
