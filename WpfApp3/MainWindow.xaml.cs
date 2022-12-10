@@ -1,9 +1,5 @@
-﻿using System.Text.Json;
-using System.Windows;
+﻿using System.Windows;
 using Microsoft.EntityFrameworkCore;
-using System.IO;
-using System.Collections;
-using System.Collections.Generic;
 
 namespace WpfApp3
 {
@@ -24,19 +20,19 @@ namespace WpfApp3
             // гарантируем, что база данных создана
             db.Database.EnsureCreated();
             // загружаем данные из БД
-            db.Users.Load();
+            db.Employee.Load();
             // и устанавливаем данные в качестве контекста
-            DataContext = db.Users.Local.ToObservableCollection();
+            DataContext = db.Employee.Local.ToObservableCollection();
         }
 
         // добавление
         private void Add_Click(object sender, RoutedEventArgs e)
         {
-            UserWindow UserWindow = new UserWindow(new User());
-            if (UserWindow.ShowDialog() == true)
+            EmployeeWindow EmployeeWindow = new EmployeeWindow(new Employee());
+            if (EmployeeWindow.ShowDialog() == true)
             {
-                User User = UserWindow.User;
-                db.Users.Add(User);
+                Employee Employee = EmployeeWindow.Employee;
+                db.Employee.Add(Employee);
                 db.SaveChanges();
             }
         }
@@ -44,38 +40,38 @@ namespace WpfApp3
         private void Edit_Click(object sender, RoutedEventArgs e)
         {
             // получаем выделенный объект
-            User? user = usersList.SelectedItem as User;
+            Employee? employee = employeeList.SelectedItem as Employee;
             // если ни одного объекта не выделено, выходим
-            if (user is null) return;
+            if (employee is null) return;
 
-            UserWindow UserWindow = new UserWindow(new User
+            EmployeeWindow EmployeeWindow = new EmployeeWindow(new Employee
             {
-                Id = user.Id,
-                Name = user.Name,
-                Id_pers = user.Id_pers,
-                Surname = user.Surname,
-                Patronymic = user.Patronymic,
-                Date_of_Birth = user.Date_of_Birth,
-                Phone = user.Phone,
-                Department = user.Department,
+                Id = employee.Id,
+                Name = employee.Name,
+                Id_pers = employee.Id_pers,
+                Surname = employee.Surname,
+                Patronymic = employee.Patronymic,
+                Date_of_Birth = employee.Date_of_Birth,
+                Phone = employee.Phone,
+                Department = employee.Department,
             });
 
-            if (UserWindow.ShowDialog() == true)
+            if (EmployeeWindow.ShowDialog() == true)
             {
                 // получаем измененный объект
-                user = db.Users.Find(UserWindow.User.Id);
-                if (user != null)
+                employee = db.Employee.Find(EmployeeWindow.Employee.Id);
+                if (employee != null)
                 {
-                    user.Name = UserWindow.User.Name;
-                    user.Id_pers = UserWindow.User.Id_pers;
-                    user.Surname = UserWindow.User.Surname;
-                    user.Patronymic = UserWindow.User.Patronymic;
-                    user.Date_of_Birth = UserWindow.User.Date_of_Birth;
-                    user.Phone = UserWindow.User.Phone;
-                    user.Department = UserWindow.User.Department;
+                    employee.Name = EmployeeWindow.Employee.Name;
+                    employee.Id_pers = EmployeeWindow.Employee.Id_pers;
+                    employee.Surname = EmployeeWindow.Employee.Surname;
+                    employee.Patronymic = EmployeeWindow.Employee.Patronymic;
+                    employee.Date_of_Birth = EmployeeWindow.Employee.Date_of_Birth;
+                    employee.Phone = EmployeeWindow.Employee.Phone;
+                    employee.Department = EmployeeWindow.Employee.Department;
 
                     db.SaveChanges();
-                    usersList.Items.Refresh();
+                    employeeList.Items.Refresh();
                 }
             }
         }
@@ -83,41 +79,34 @@ namespace WpfApp3
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
             // получаем выделенный объект
-            User? user = usersList.SelectedItem as User;
+            Employee? employee = employeeList.SelectedItem as Employee;
             // если ни одного объекта не выделено, выходим
-            if (user is null) return;
-            db.Users.Remove(user);
+            if (employee is null) return;
+            db.Employee.Remove(employee);
             db.SaveChanges();
         }
-
+        //Подробнее
         private void Info_Click(object sender, RoutedEventArgs e)
         {
             // получаем выделенный объект
-            User? user = usersList.SelectedItem as User;
+            Employee? employee = employeeList.SelectedItem as Employee;
             // если ни одного объекта не выделено, выходим
-            if (user is null) return;
+            if (employee is null) return;
 
-            InfoWindow InfoWindow = new InfoWindow(user);
+            InfoWindow InfoWindow = new InfoWindow(employee);
             if (InfoWindow.ShowDialog() == true)
             {
-                // получаем измененный объект
-                user = db.Users.Find(InfoWindow.User.Id);
-                if (user != null)
+                employee = db.Employee.Find(InfoWindow.Employee.Id);
+                if (employee != null)
                 {
-                    usersList.Items.Refresh();
+                    employeeList.Items.Refresh();
                 }
             }
         }
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-            StreamWriter file = File.CreateText("Employees.json");
-            List <string> list = new List<string>();
-            foreach (User u in db.Users) {
-                string JSON = JsonSerializer.Serialize(u, typeof(User));
-                file.WriteLine(JSON);
-            }
-            file.Close();
+            SaveJSON save = new SaveJSON(db.Employee);
         }
     }
 }

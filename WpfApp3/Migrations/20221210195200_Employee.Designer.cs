@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace WpfApp3.Migrations
 {
     [DbContext(typeof(SqlLiteDbContext))]
-    [Migration("20221203074037_Update users")]
-    partial class Updateusers
+    [Migration("20221210195200_Employee")]
+    partial class Employee
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -18,7 +18,7 @@ namespace WpfApp3.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.0");
 
-            modelBuilder.Entity("User", b =>
+            modelBuilder.Entity("Employee", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -53,7 +53,7 @@ namespace WpfApp3.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users");
+                    b.ToTable("Employee");
                 });
 #pragma warning restore 612, 618
         }

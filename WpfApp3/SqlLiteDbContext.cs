@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 public partial class SqlLiteDbContext : DbContext
 {
@@ -13,7 +12,7 @@ public partial class SqlLiteDbContext : DbContext
         Database.EnsureCreated();
     }
 
-    public virtual DbSet<User> Users { get; set; }
+    public virtual DbSet<Employee> Employee { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {

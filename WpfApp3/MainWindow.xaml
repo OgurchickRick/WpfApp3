@@ -10,7 +10,7 @@
             <RowDefinition />
             <RowDefinition Height="50" />
         </Grid.RowDefinitions>
-        <ListBox x:Name="usersList" ItemsSource="{Binding}" Background="#FF0D1117" Foreground="White" BorderBrush="#FF0D1117">
+        <ListBox x:Name="employeeList" ItemsSource="{Binding}" Background="#FF0D1117" Foreground="White" BorderBrush="#FF0D1117">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>

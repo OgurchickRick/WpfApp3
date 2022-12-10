@@ -1,17 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using Microsoft.EntityFrameworkCore;
+﻿using System.Windows;
 
 namespace WpfApp3
 {
@@ -20,12 +7,12 @@ namespace WpfApp3
     {
         SqlLiteDbContext db = new SqlLiteDbContext();
 
-         public User User { get; }
-        public InfoWindow(User user)
+         public Employee Employee { get; }
+        public InfoWindow(Employee employee)
         {
             InitializeComponent();
-            User = user;
-            DataContext = User;
+            Employee = employee;
+            DataContext = Employee;
         }
 
         private void Accept_Click(object sender, RoutedEventArgs e)
