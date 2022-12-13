@@ -41,17 +41,73 @@
         <TextBlock Text="Телефон" Grid.Row="5" VerticalAlignment="Center" />
         <TextBlock Text="Отдел" Grid.Row="6" VerticalAlignment="Center" />
 
-        <TextBox Text="{Binding Id_pers}" Grid.Column="1" VerticalContentAlignment="Center"/>
-        <TextBox Text="{Binding Surname}" Grid.Column="1" Grid.Row="1" VerticalContentAlignment="Center"/>
-        <TextBox Text="{Binding Name}" Grid.Column="1" Grid.Row="2" VerticalContentAlignment="Center"/>
-        <TextBox Text="{Binding Patronymic}" Grid.Column="1" Grid.Row="3" VerticalContentAlignment="Center"/>
-        <TextBox Text="{Binding Date_of_Birth}" Grid.Column="1" Grid.Row="4" VerticalContentAlignment="Center"/>
-        <TextBox Text="{Binding Phone}" Grid.Column="1" Grid.Row="5" VerticalContentAlignment="Center"/>
-        <TextBox Text="{Binding Department}" Grid.Column="1" Grid.Row="6" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="fieldIdPers" Grid.Column="1" VerticalContentAlignment="Center">
+            <TextBox.Text>
+                <Binding Path="Id_pers" NotifyOnValidationError="True">
+                    <Binding.ValidationRules>
+                        <DataErrorValidationRule />
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+        <TextBox x:Name="fieldSurname" Grid.Column="1" Grid.Row="1" VerticalContentAlignment="Center">
+            <TextBox.Text>
+                <Binding Path="Surname" NotifyOnValidationError="True">
+                    <Binding.ValidationRules>
+                        <DataErrorValidationRule />
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+        <TextBox x:Name="fieldName" Grid.Column="1" Grid.Row="2" VerticalContentAlignment="Center">
+            <TextBox.Text>
+                <Binding Path="Name" NotifyOnValidationError="True">
+                    <Binding.ValidationRules>
+                        <DataErrorValidationRule />
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+        <TextBox x:Name="fieldPatronymic" Grid.Column="1" Grid.Row="3" VerticalContentAlignment="Center">
+            <TextBox.Text>
+                <Binding Path="Patronymic" NotifyOnValidationError="True">
+                    <Binding.ValidationRules>
+                        <DataErrorValidationRule />
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+        <TextBox x:Name="fieldBirth" Grid.Column="1" Grid.Row="4" VerticalContentAlignment="Center">
+            <TextBox.Text>
+                <Binding Path="Date_of_Birth" NotifyOnValidationError="True">
+                    <Binding.ValidationRules>
+                        <DataErrorValidationRule />
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+        <TextBox x:Name="fieldPhone" Grid.Column="1" Grid.Row="5" VerticalContentAlignment="Center">
+            <TextBox.Text>
+                <Binding Path="Phone" NotifyOnValidationError="True">
+                    <Binding.ValidationRules>
+                        <DataErrorValidationRule />
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+        <TextBox x:Name="fieldDepartment" Grid.Column="1" Grid.Row="6" VerticalContentAlignment="Center">
+            <TextBox.Text>
+                <Binding Path="Department" NotifyOnValidationError="True">
+                    <Binding.ValidationRules>
+                        <DataErrorValidationRule />
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
 
 
         <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Grid.Row="7" Grid.Column="1">
-            <Button IsDefault="True" Click="Accept_Click" Background="#FF0D1117" Foreground="White"  BorderBrush="#FF13EB08">OK</Button>
+            <Button x:Name="Accept" IsDefault="True" Click="Accept_Click" Background="#FF0D1117" Foreground="White"  BorderBrush="#FF13EB08">OK</Button>
             <Button IsCancel="True" Background="#FF0D1117" Foreground="White" BorderBrush="#FFEB0808">Отмена</Button>
         </StackPanel>
     </Grid>
