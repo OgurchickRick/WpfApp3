@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using Microsoft.EntityFrameworkCore;
+using WpfApp3.Reports;
 
 namespace WpfApp3
 {
@@ -104,7 +105,12 @@ namespace WpfApp3
             }
         }
 
-        private void Save_Click(object sender, RoutedEventArgs e)
+        private void Excel_Click(object sender, RoutedEventArgs e)
+        {
+            SaveExcel save = new SaveExcel(db.Employee);
+        }
+
+        private void JSON_Click(object sender, RoutedEventArgs e)
         {
             SaveJSON save = new SaveJSON(db.Employee);
         }

@@ -15,17 +15,15 @@ namespace WpfApp3
 
         void Accept_Click(object sender, RoutedEventArgs e)
         {
-            //Типо валидация, очень страшная, но работает
-            //Костыль на костыле, пока просто чтобы работало
-            bool isValid = fieldSurname.Text.Length > 0
-                & fieldName.Text.Length > 0
-                & fieldPatronymic.Text.Length > 0
-                & fieldBirth.Text.Length > 0
-                & fieldPhone.Text.Length > 0
-                & fieldDepartment.Text.Length > 0;
-            if (isValid) 
+            bool isError = string.IsNullOrEmpty(Employee.Surname)
+                || string.IsNullOrEmpty(Employee.Name)
+                || string.IsNullOrEmpty(Employee.Patronymic)
+                || string.IsNullOrEmpty(Employee.Date_of_Birth)
+                || string.IsNullOrEmpty(Employee.Phone)
+                || string.IsNullOrEmpty(Employee.Department);
+            if (!isError) 
             {
-                DialogResult = true;
+                DialogResult = true; 
             }
         }
     }

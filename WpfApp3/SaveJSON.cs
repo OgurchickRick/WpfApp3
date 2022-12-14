@@ -4,6 +4,7 @@ using System.IO;
 using System.Text.Encodings.Web;
 using System.Text.Json;
 using System.Text.Unicode;
+using System.Windows;
 
 namespace WpfApp3
 {
@@ -13,28 +14,22 @@ namespace WpfApp3
 
         public SaveJSON(DbSet<Employee> data)
         {
-            options = new JsonSerializerOptions
+            try
             {
-                Encoder = JavaScriptEncoder.Create(UnicodeRanges.BasicLatin, UnicodeRanges.Cyrillic),
-                WriteIndented = true
-            };
-            string JSON = JsonSerializer.Serialize(data, options);
-            SaveFileDialog saveDialog = new SaveFileDialog
-            {
-                FileName = "Employees",
-                DefaultExt = ".json",
-                Filter = "JSON file (.json)|*.json"
-            };
-
-            bool? result = saveDialog.ShowDialog();
-
-            if (result == true)
-            {
-                using (StreamWriter sw = new StreamWriter(saveDialog.OpenFile(), System.Text.Encoding.Default))
+                options = new JsonSerializerOptions
                 {
-                    sw.WriteLine(JSON);
-                    sw.Close();
-                }
+                    Encoder = JavaScriptEncoder.Create(UnicodeRanges.BasicLatin, UnicodeRanges.Cyrillic),
+                    WriteIndented = true
+                };
+                string JSON = JsonSerializer.Serialize(data, options);
+                StreamWriter file = File.CreateText(@"employee.json");
+                file.WriteLine(JSON);
+                file.Close();
+                MessageBox.Show("Файл успешно сохранён", "Успех", MessageBoxButton.OK);
+            }
+            catch 
+            {
+                MessageBox.Show("Не удалось сохранить файл", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
     }
