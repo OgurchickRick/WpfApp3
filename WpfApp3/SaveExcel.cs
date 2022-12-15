@@ -22,7 +22,7 @@ namespace WpfApp3.Reports
                 {
                     ExcelWorksheet worksheet = excelPackage.Workbook.Worksheets.Add("Сотрудники");
 
-                    worksheet.Cells[1, 1].Value = "Ид работника";
+                    worksheet.Cells[1, 1].Value = "ID работника";
                     worksheet.Cells[1, 2].Value = "Фамилия";
                     worksheet.Cells[1, 3].Value = "Имя";
                     worksheet.Cells[1, 4].Value = "Отчество";
