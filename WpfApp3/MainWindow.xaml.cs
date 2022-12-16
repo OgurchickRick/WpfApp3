@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.IO;
+using System.Windows;
 using Microsoft.EntityFrameworkCore;
 using WpfApp3.Reports;
 
@@ -24,6 +25,11 @@ namespace WpfApp3
             db.Employee.Load();
             // и устанавливаем данные в качестве контекста
             DataContext = db.Employee.Local.ToObservableCollection();
+
+            if (!Directory.Exists("Reports"))
+            {
+                Directory.CreateDirectory("Reports");
+            }
         }
 
         // добавление

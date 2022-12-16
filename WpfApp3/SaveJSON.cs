@@ -22,7 +22,7 @@ namespace WpfApp3
                     WriteIndented = true
                 };
                 string JSON = JsonSerializer.Serialize(data, options);
-                StreamWriter file = File.CreateText(@"employee.json");
+                StreamWriter file = File.CreateText("Reports/employee.json");
                 file.WriteLine(JSON);
                 file.Close();
                 MessageBox.Show("Файл успешно сохранён", "Успех", MessageBoxButton.OK);

@@ -43,7 +43,7 @@ namespace WpfApp3.Reports
                         count += 1;
                     }
 
-                    FileInfo fi = new FileInfo(@"Report.xlsx");
+                    FileInfo fi = new FileInfo("Reports/Report.xlsx");
                     excelPackage.SaveAs(fi);
 
                     MessageBox.Show("Файл успешно сохранён", "Успех", MessageBoxButton.OK);
