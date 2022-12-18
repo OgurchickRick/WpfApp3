@@ -1,6 +1,7 @@
 ﻿using System.IO;
 using System.Linq;
 using System.Windows;
+using System.Windows.Documents;
 using Microsoft.EntityFrameworkCore;
 using WpfApp3.Reports;
 
@@ -129,10 +130,7 @@ namespace WpfApp3
         private void Search_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
             var curentEmployee = db.Employee.ToList();
-            curentEmployee = curentEmployee.Where(p => p.Surname.ToLower().Contains(Search.Text.ToLower())).ToList();
-            DataContext = curentEmployee;
-            employeeList.Items.Refresh();
-            curentEmployee = curentEmployee.Where(p => p.Name.ToLower().Contains(Search.Text.ToLower())).ToList();
+            curentEmployee = curentEmployee.Where(p => string.Join(" ", p.Surname, p.Name, p.Patronymic).ToLower().Contains(Search.Text.ToLower())).ToList();
             DataContext = curentEmployee;
             employeeList.Items.Refresh();
         }
