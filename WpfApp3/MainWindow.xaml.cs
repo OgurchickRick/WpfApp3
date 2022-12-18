@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System.Linq;
 using System.Windows;
 using Microsoft.EntityFrameworkCore;
 using WpfApp3.Reports;
@@ -14,6 +15,8 @@ namespace WpfApp3
             InitializeComponent();
 
             Loaded += MainWindow_Loaded;
+
+            
         }
 
         // при загрузке окна
@@ -25,6 +28,7 @@ namespace WpfApp3
             db.Employee.Load();
             // и устанавливаем данные в качестве контекста
             DataContext = db.Employee.Local.ToObservableCollection();
+            
 
             if (!Directory.Exists("Reports"))
             {
@@ -41,6 +45,7 @@ namespace WpfApp3
                 Employee Employee = EmployeeWindow.Employee;
                 db.Employee.Add(Employee);
                 db.SaveChanges();
+                DataContext = db.Employee.Local.ToObservableCollection();
             }
         }
         // редактирование
@@ -119,6 +124,17 @@ namespace WpfApp3
         private void JSON_Click(object sender, RoutedEventArgs e)
         {
             SaveJSON save = new SaveJSON(db.Employee);
+        }
+
+        private void Search_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+            var curentEmployee = db.Employee.ToList();
+            curentEmployee = curentEmployee.Where(p => p.Surname.ToLower().Contains(Search.Text.ToLower())).ToList();
+            DataContext = curentEmployee;
+            employeeList.Items.Refresh();
+            curentEmployee = curentEmployee.Where(p => p.Name.ToLower().Contains(Search.Text.ToLower())).ToList();
+            DataContext = curentEmployee;
+            employeeList.Items.Refresh();
         }
     }
 }
