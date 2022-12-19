@@ -130,7 +130,11 @@ namespace WpfApp3
         private void Search_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
             var curentEmployee = db.Employee.ToList();
-            curentEmployee = curentEmployee.Where(p => string.Join(" ", p.Surname, p.Name, p.Patronymic).ToLower().Contains(Search.Text.ToLower())).ToList();
+            curentEmployee = curentEmployee.Where(p => p.Id_pers.ToString().ToLower().Contains(Search.Text.ToLower())
+            || string.Join(" ", p.Surname, p.Name, p.Patronymic).ToLower().Contains(Search.Text.ToLower())
+            || p.Phone.ToLower().Contains(Search.Text.ToLower())
+            || p.Date_of_Birth.ToLower().Contains(Search.Text.ToLower())
+            || p.Department.ToLower().Contains(Search.Text.ToLower())).ToList();
             DataContext = curentEmployee;
             employeeList.Items.Refresh();
         }
