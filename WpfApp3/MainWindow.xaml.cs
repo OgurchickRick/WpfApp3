@@ -61,12 +61,24 @@ namespace WpfApp3
             {
                 Id = employee.Id,
                 Name = employee.Name,
-                Id_pers = employee.Id_pers,
                 Surname = employee.Surname,
                 Patronymic = employee.Patronymic,
+                Gender = employee.Gender,
                 Date_of_Birth = employee.Date_of_Birth,
-                Phone = employee.Phone,
-                Department = employee.Department,
+                Age = employee.Age,
+                Citizenship = employee.Citizenship,
+                PlaceOfResidence = employee.PlaceOfResidence,
+                GraduatedFromGrades = employee.GraduatedFromGrades,
+                FinishedOnly = employee.FinishedOnly,
+                AverageScoreOfCertificate = employee.AverageScoreOfCertificate,
+                Snils = employee.Snils,
+                DisabilityCertificate = employee.DisabilityCertificate,
+                Orphan = employee.Orphan,
+                Speciality = employee.Speciality,
+                Certificate = employee.Certificate,
+                Money = employee.Money,
+                Enrollment = employee.Enrollment,
+                YearOfAdmission = employee.YearOfAdmission
             });
 
             if (EmployeeWindow.ShowDialog() == true)
@@ -76,12 +88,24 @@ namespace WpfApp3
                 if (employee != null)
                 {
                     employee.Name = EmployeeWindow.Employee.Name;
-                    employee.Id_pers = EmployeeWindow.Employee.Id_pers;
                     employee.Surname = EmployeeWindow.Employee.Surname;
                     employee.Patronymic = EmployeeWindow.Employee.Patronymic;
+                    employee.Gender = EmployeeWindow.Employee.Gender;
                     employee.Date_of_Birth = EmployeeWindow.Employee.Date_of_Birth;
-                    employee.Phone = EmployeeWindow.Employee.Phone;
-                    employee.Department = EmployeeWindow.Employee.Department;
+                    employee.Age = EmployeeWindow.Employee.Age;
+                    employee.Citizenship = EmployeeWindow.Employee.Citizenship;
+                    employee.PlaceOfResidence = EmployeeWindow.Employee.PlaceOfResidence;
+                    employee.GraduatedFromGrades = EmployeeWindow.Employee.GraduatedFromGrades;
+                    employee.FinishedOnly = EmployeeWindow.Employee.FinishedOnly;
+                    employee.AverageScoreOfCertificate = EmployeeWindow.Employee.AverageScoreOfCertificate;
+                    employee.Snils = EmployeeWindow.Employee.Snils;
+                    employee.DisabilityCertificate = EmployeeWindow.Employee.DisabilityCertificate;
+                    employee.Orphan = EmployeeWindow.Employee.Orphan;
+                    employee.Speciality = EmployeeWindow.Employee.Speciality;
+                    employee.Certificate = EmployeeWindow.Employee.Certificate;
+                    employee.Money = EmployeeWindow.Employee.Money;
+                    employee.Enrollment = EmployeeWindow.Employee.Enrollment;
+                    employee.YearOfAdmission = EmployeeWindow.Employee.YearOfAdmission;
 
                     db.SaveChanges();
                     employeeList.Items.Refresh();
@@ -122,21 +146,5 @@ namespace WpfApp3
             SaveExcel save = new SaveExcel(db.Employee);
         }
 
-        private void JSON_Click(object sender, RoutedEventArgs e)
-        {
-            SaveJSON save = new SaveJSON(db.Employee);
-        }
-
-        private void Search_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
-        {
-            var curentEmployee = db.Employee.ToList();
-            curentEmployee = curentEmployee.Where(p => p.Id_pers.ToString().ToLower().Contains(Search.Text.ToLower())
-            || string.Join(" ", p.Surname, p.Name, p.Patronymic).ToLower().Contains(Search.Text.ToLower())
-            || p.Phone.ToLower().Contains(Search.Text.ToLower())
-            || p.Date_of_Birth.ToLower().Contains(Search.Text.ToLower())
-            || p.Department.ToLower().Contains(Search.Text.ToLower())).ToList();
-            DataContext = curentEmployee;
-            employeeList.Items.Refresh();
-        }
     }
 }
