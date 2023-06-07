@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace WpfApp3.Migrations
 {
     [DbContext(typeof(SqlLiteDbContext))]
-    [Migration("20230607113100_AddMigration")]
-    partial class AddMigration
+    [Migration("20230607124157_Add")]
+    partial class Add
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -51,6 +51,9 @@ namespace WpfApp3.Migrations
                     b.Property<string>("FinishedOnly")
                         .IsRequired()
                         .HasColumnType("TEXT");
+
+                    b.Property<int>("FullYears")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Gender")
                         .IsRequired()

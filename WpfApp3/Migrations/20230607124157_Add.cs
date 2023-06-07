@@ -5,7 +5,7 @@
 namespace WpfApp3.Migrations
 {
     /// <inheritdoc />
-    public partial class AddMigration : Migration
+    public partial class Add : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -22,6 +22,7 @@ namespace WpfApp3.Migrations
                     Gender = table.Column<string>(type: "TEXT", nullable: false),
                     DateofBirth = table.Column<string>(name: "Date_of_Birth", type: "TEXT", nullable: false),
                     Age = table.Column<int>(type: "INTEGER", nullable: false),
+                    FullYears = table.Column<int>(type: "INTEGER", nullable: false),
                     Citizenship = table.Column<string>(type: "TEXT", nullable: false),
                     PlaceOfResidence = table.Column<string>(type: "TEXT", nullable: false),
                     GraduatedFromGrades = table.Column<string>(type: "TEXT", nullable: false),

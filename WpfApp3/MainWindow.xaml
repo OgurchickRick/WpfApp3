@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp3"
         mc:Ignorable="d" Height="450" Width="810" WindowStartupLocation="CenterScreen" Title="Нанятый персонал">
-    <Grid Background="#FF0D1117">
-        <ListBox x:Name="employeeList" ItemsSource="{Binding}" Background="#FF0D1117" Foreground="White" BorderBrush="#FF0D1117" Margin="10,10,170,10">
+    <Grid>
+        <ListBox x:Name="employeeList" ItemsSource="{Binding}" Margin="10,10,170,10">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
@@ -19,12 +19,12 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <StackPanel Orientation="Vertical" Margin="644,10,10,10" Width="145" HorizontalAlignment="Right" Background="#FF131922">
-            <Button Content="Нанять" Margin="15,10,15,10" Click="Add_Click" Background="#FF0D1117" Foreground="White" BorderBrush="#FF13EB08"/>
-            <Button Content="Изменить" Margin="15,10,15,10" Click="Edit_Click"  Background="#FF0D1117" Foreground="White" BorderBrush="#FF08EBEB"/>
-            <Button Content="Подробнее" Margin="15,10,15,10" Click="Info_Click" Background="#FF0D1117" Foreground="White" BorderBrush="#FF08EBEB"/>
-            <Button Content="Уволить" Margin="15,10,15,10" Click="Delete_Click"  Background="#FF0D1117" Foreground="White" BorderBrush="#FFEB0808"/>
-            <Button Content="Сохранить Excel" Margin="15,10,15,10" Background="#FF0D1117" Foreground="White" BorderBrush="#FFA708EB" Click="Excel_Click" VerticalAlignment="Bottom"/>
+        <StackPanel Orientation="Vertical" Margin="644,10,10,10" Width="145" Background="#fff" HorizontalAlignment="Right">
+            <Button Content="Нанять" Margin="15,10,15,10" Click="Add_Click" BorderBrush="#FF13EB08"/>
+            <Button Content="Изменить" Margin="15,10,15,10" Click="Edit_Click" BorderBrush="#FF08EBEB"/>
+            <Button Content="Подробнее" Margin="15,10,15,10" Click="Info_Click" BorderBrush="#FF08EBEB"/>
+            <Button Content="Уволить" Margin="15,10,15,10" Click="Delete_Click"  BorderBrush="#FFEB0808"/>
+            <Button Content="Сохранить Excel" Margin="15,10,15,10" BorderBrush="#FFA708EB" Click="Excel_Click" VerticalAlignment="Bottom"/>
         </StackPanel>
     </Grid>
 </Window>

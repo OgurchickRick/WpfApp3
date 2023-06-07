@@ -49,6 +49,9 @@ namespace WpfApp3.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("FullYears")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("Gender")
                         .IsRequired()
                         .HasColumnType("TEXT");

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp3"
         mc:Ignorable="d"
-        Title="Найм сотрудника" Height="400" Width="400" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Background="#FF0D1117" Foreground="#FFEEEDED" OpacityMask="Black">
+        Title="Найм сотрудника" Height="800" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" OpacityMask="Black">
     <Window.Resources>
         <Style TargetType="TextBlock">
             <Setter Property="Margin" Value="8" />
@@ -14,7 +14,7 @@
             <Setter Property="Margin" Value="8" />
         </Style>
         <Style TargetType="Button">
-            <Setter Property="MinWidth" Value="60" />
+            <Setter Property="MinWidth" Value="100" />
             <Setter Property="Margin" Value="8" />
         </Style>
     </Window.Resources>
@@ -28,29 +28,49 @@
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="300" />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <TextBlock Text="ID работника" VerticalAlignment="Center" />
-        <TextBlock Text="Фамилия" Grid.Row="1" VerticalAlignment="Center" />
-        <TextBlock Text="Имя" Grid.Row="2" VerticalAlignment="Center" />
-        <TextBlock Text="Отчество" Grid.Row="3" VerticalAlignment="Center"/>
+        <TextBlock Text="Фамилия" VerticalAlignment="Center"/>
+        <TextBlock Text="Имя" Grid.Row="1" VerticalAlignment="Center"/>
+        <TextBlock Text="Отчество" Grid.Row="2" VerticalAlignment="Center"/>
+        <TextBlock Text="Пол" Grid.Row="3" VerticalAlignment="Center"/>
         <TextBlock Text="Дата рождения" Grid.Row="4" VerticalAlignment="Center" />
-        <TextBlock Text="Телефон" Grid.Row="5" VerticalAlignment="Center" />
-        <TextBlock Text="Отдел" Grid.Row="6" VerticalAlignment="Center" />
+        <TextBlock Text="Возраст" Grid.Row="5" VerticalAlignment="Center" />
+        <TextBlock Text="Полных лет" Grid.Row="6" VerticalAlignment="Center" />
+        <TextBlock Text="Гражданство" Grid.Row="7" VerticalAlignment="Center" />
+        <TextBlock Text="Место проживания" Grid.Row="8" VerticalAlignment="Center" />
+        <TextBlock Text="Закончил классов(9/11)" Grid.Row="9" VerticalAlignment="Center" />
+        <TextBlock Text="Закончил только(9/11)" Grid.Row="10" VerticalAlignment="Center" />
+        <TextBlock Text="Средний балл аттестата" Grid.Row="11" VerticalAlignment="Center" />
+        <TextBlock Text="СНИЛС" Grid.Row="12" VerticalAlignment="Center" />
+        <TextBlock Text="Наличие справки об инвалидности" Grid.Row="13" VerticalAlignment="Center" />
+        <TextBlock Text="Наличие документа о сиротстве(опекунстве)" Grid.Row="14" VerticalAlignment="Center" />
+        <TextBlock Text="Специальность" Grid.Row="15" VerticalAlignment="Center" />
+        <TextBlock Text="Аттестат(оригинал/копия)" Grid.Row="16" VerticalAlignment="Center" />
+        <TextBlock Text="Бюджет/Договор об оказании платных образовательных услуг" Grid.Row="17" VerticalAlignment="Center" />
+        <TextBlock Text="Зачислен/Нет" Grid.Row="18" VerticalAlignment="Center" />
+        <TextBlock Text="Год поступления" Grid.Row="19" VerticalAlignment="Center" />
 
-        <TextBox x:Name="fieldIdPers" Grid.Column="1" VerticalContentAlignment="Center">
-            <TextBox.Text>
-                <Binding Path="Id_pers" NotifyOnValidationError="True">
-                    <Binding.ValidationRules>
-                        <DataErrorValidationRule />
-                    </Binding.ValidationRules>
-                </Binding>
-            </TextBox.Text>
-        </TextBox>
-        <TextBox x:Name="fieldSurname" Grid.Column="1" Grid.Row="1" VerticalContentAlignment="Center">
+
+
+        <TextBox x:Name="fieldSurname" Grid.Column="1" VerticalContentAlignment="Center" Margin="6,8,8,10">
             <TextBox.Text>
                 <Binding Path="Surname" NotifyOnValidationError="True">
                     <Binding.ValidationRules>
@@ -59,7 +79,7 @@
                 </Binding>
             </TextBox.Text>
         </TextBox>
-        <TextBox x:Name="fieldName" Grid.Column="1" Grid.Row="2" VerticalContentAlignment="Center">
+        <TextBox x:Name="fieldName" Grid.Column="1" Grid.Row="1" VerticalContentAlignment="Center" Margin="8,6,8,10">
             <TextBox.Text>
                 <Binding Path="Name" NotifyOnValidationError="True">
                     <Binding.ValidationRules>
@@ -68,7 +88,7 @@
                 </Binding>
             </TextBox.Text>
         </TextBox>
-        <TextBox x:Name="fieldPatronymic" Grid.Column="1" Grid.Row="3" VerticalContentAlignment="Center">
+        <TextBox x:Name="fieldPatronymic" Grid.Column="1" Grid.Row="2" VerticalContentAlignment="Center" Margin="8,6,8,10">
             <TextBox.Text>
                 <Binding Path="Patronymic" NotifyOnValidationError="True">
                     <Binding.ValidationRules>
@@ -77,7 +97,16 @@
                 </Binding>
             </TextBox.Text>
         </TextBox>
-        <TextBox x:Name="fieldBirth" Grid.Column="1" Grid.Row="4" VerticalContentAlignment="Center">
+        <TextBox x:Name="fieldGender" Grid.Column="1" Grid.Row="3" VerticalContentAlignment="Center" Margin="8,6,8,10">
+            <TextBox.Text>
+                <Binding Path="Gender" NotifyOnValidationError="True">
+                    <Binding.ValidationRules>
+                        <DataErrorValidationRule />
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+        <TextBox x:Name="fieldDate_of_Birth" Grid.Column="1" Grid.Row="4" VerticalContentAlignment="Center" Margin="8,6,8,10">
             <TextBox.Text>
                 <Binding Path="Date_of_Birth" NotifyOnValidationError="True">
                     <Binding.ValidationRules>
@@ -86,29 +115,147 @@
                 </Binding>
             </TextBox.Text>
         </TextBox>
-        <TextBox x:Name="fieldPhone" Grid.Column="1" Grid.Row="5" VerticalContentAlignment="Center">
+        <TextBox x:Name="fieldAge" Grid.Column="1" Grid.Row="5" VerticalContentAlignment="Center" Margin="8,6,8,10">
             <TextBox.Text>
-                <Binding Path="Phone" NotifyOnValidationError="True">
+                <Binding Path="Age" NotifyOnValidationError="True">
                     <Binding.ValidationRules>
                         <DataErrorValidationRule />
                     </Binding.ValidationRules>
                 </Binding>
             </TextBox.Text>
         </TextBox>
-        <TextBox x:Name="fieldDepartment" Grid.Column="1" Grid.Row="6" VerticalContentAlignment="Center">
+        <TextBox x:Name="fieldFullYears" Grid.Column="1" Grid.Row="6" VerticalContentAlignment="Center" Margin="8,6,8,10">
             <TextBox.Text>
-                <Binding Path="Department" NotifyOnValidationError="True">
+                <Binding Path="FullYears" NotifyOnValidationError="True">
                     <Binding.ValidationRules>
                         <DataErrorValidationRule />
                     </Binding.ValidationRules>
                 </Binding>
             </TextBox.Text>
         </TextBox>
+        <TextBox x:Name="fieldCitizenship" Grid.Column="1" Grid.Row="7" VerticalContentAlignment="Center" Margin="8,6,8,10">
+            <TextBox.Text>
+                <Binding Path="Citizenship" NotifyOnValidationError="True">
+                    <Binding.ValidationRules>
+                        <DataErrorValidationRule />
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+        <TextBox x:Name="fieldPlaceOfResidence" Grid.Column="1" Grid.Row="8" VerticalContentAlignment="Center" Margin="8,6,8,10">
+            <TextBox.Text>
+                <Binding Path="PlaceOfResidence" NotifyOnValidationError="True">
+                    <Binding.ValidationRules>
+                        <DataErrorValidationRule />
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+        <TextBox x:Name="fieldGraduatedFromGrades" Grid.Column="1" Grid.Row="9" VerticalContentAlignment="Center" Margin="8,6,8,10">
+            <TextBox.Text>
+                <Binding Path="GraduatedFromGrades" NotifyOnValidationError="True">
+                    <Binding.ValidationRules>
+                        <DataErrorValidationRule />
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+        <TextBox x:Name="fieldFinishedOnly" Grid.Column="1" Grid.Row="10" VerticalContentAlignment="Center" Margin="8,6,8,10">
+            <TextBox.Text>
+                <Binding Path="FinishedOnly" NotifyOnValidationError="True">
+                    <Binding.ValidationRules>
+                        <DataErrorValidationRule />
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+        <TextBox x:Name="fieldAverageScoreOfCertificate" Grid.Column="1" Grid.Row="11" VerticalContentAlignment="Center" Margin="8,6,8,10">
+            <TextBox.Text>
+                <Binding Path="AverageScoreOfCertificate" NotifyOnValidationError="True">
+                    <Binding.ValidationRules>
+                        <DataErrorValidationRule />
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+        <TextBox x:Name="fieldSnils" Grid.Column="1" Grid.Row="12" VerticalContentAlignment="Center" Margin="8,6,8,10">
+            <TextBox.Text>
+                <Binding Path="Snils" NotifyOnValidationError="True">
+                    <Binding.ValidationRules>
+                        <DataErrorValidationRule />
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+        <TextBox x:Name="fieldDisabilityCertificate" Grid.Column="1" Grid.Row="13" VerticalContentAlignment="Center" Margin="8,6,8,10">
+            <TextBox.Text>
+                <Binding Path="DisabilityCertificate" NotifyOnValidationError="True">
+                    <Binding.ValidationRules>
+                        <DataErrorValidationRule />
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+        <TextBox x:Name="fieldOrphan" Grid.Column="1" Grid.Row="14" VerticalContentAlignment="Center" Margin="8,6,8,10">
+            <TextBox.Text>
+                <Binding Path="Orphan" NotifyOnValidationError="True">
+                    <Binding.ValidationRules>
+                        <DataErrorValidationRule />
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+        <TextBox x:Name="fieldSpeciality" Grid.Column="1" Grid.Row="15" VerticalContentAlignment="Center" Margin="8,6,8,10">
+            <TextBox.Text>
+                <Binding Path="Speciality" NotifyOnValidationError="True">
+                    <Binding.ValidationRules>
+                        <DataErrorValidationRule />
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+        <TextBox x:Name="fieldCertificate" Grid.Column="1" Grid.Row="16" VerticalContentAlignment="Center" Margin="8,6,8,10">
+            <TextBox.Text>
+                <Binding Path="Certificate" NotifyOnValidationError="True">
+                    <Binding.ValidationRules>
+                        <DataErrorValidationRule />
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+        <TextBox x:Name="fieldMoney" Grid.Column="1" Grid.Row="17" VerticalContentAlignment="Center" Margin="8,6,8,10">
+            <TextBox.Text>
+                <Binding Path="Money" NotifyOnValidationError="True">
+                    <Binding.ValidationRules>
+                        <DataErrorValidationRule />
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+        <TextBox x:Name="fieldEnrollment" Grid.Column="1" Grid.Row="18" VerticalContentAlignment="Center" Margin="8,6,8,10">
+            <TextBox.Text>
+                <Binding Path="Enrollment" NotifyOnValidationError="True">
+                    <Binding.ValidationRules>
+                        <DataErrorValidationRule />
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+        <TextBox x:Name="fieldYearOfAdmission" Grid.Column="1" Grid.Row="19" VerticalContentAlignment="Center" Margin="8,6,8,10">
+            <TextBox.Text>
+                <Binding Path="YearOfAdmission" NotifyOnValidationError="True">
+                    <Binding.ValidationRules>
+                        <DataErrorValidationRule />
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+        
 
 
-        <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Grid.Row="7" Grid.Column="1">
-            <Button x:Name="Accept" IsDefault="True" Click="Accept_Click" Background="#FF0D1117" Foreground="White"  BorderBrush="#FF13EB08">OK</Button>
-            <Button IsCancel="True" Background="#FF0D1117" Foreground="White" BorderBrush="#FFEB0808">Отмена</Button>
+        <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Grid.Row="20" Grid.Column="1">
+            <Button x:Name="Accept" IsDefault="True" Click="Accept_Click" BorderBrush="#FF13EB08">OK</Button>
+            <Button IsCancel="True" BorderBrush="#FFEB0808">Отмена</Button>
         </StackPanel>
     </Grid>
 </Window>

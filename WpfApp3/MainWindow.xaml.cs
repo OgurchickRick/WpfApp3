@@ -66,6 +66,7 @@ namespace WpfApp3
                 Gender = employee.Gender,
                 Date_of_Birth = employee.Date_of_Birth,
                 Age = employee.Age,
+                FullYears = employee.FullYears,
                 Citizenship = employee.Citizenship,
                 PlaceOfResidence = employee.PlaceOfResidence,
                 GraduatedFromGrades = employee.GraduatedFromGrades,
@@ -93,6 +94,7 @@ namespace WpfApp3
                     employee.Gender = EmployeeWindow.Employee.Gender;
                     employee.Date_of_Birth = EmployeeWindow.Employee.Date_of_Birth;
                     employee.Age = EmployeeWindow.Employee.Age;
+                    employee.FullYears = EmployeeWindow.Employee.FullYears;
                     employee.Citizenship = EmployeeWindow.Employee.Citizenship;
                     employee.PlaceOfResidence = EmployeeWindow.Employee.PlaceOfResidence;
                     employee.GraduatedFromGrades = EmployeeWindow.Employee.GraduatedFromGrades;

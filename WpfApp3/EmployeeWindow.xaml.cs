@@ -21,6 +21,7 @@ namespace WpfApp3
                 || string.IsNullOrEmpty(Employee.Gender)
                 || string.IsNullOrEmpty(Employee.Date_of_Birth)
                 || int.IsPositive(Employee.Age)
+                || int.IsNegative(Employee.FullYears)
                 || string.IsNullOrEmpty(Employee.Citizenship)
                 || string.IsNullOrEmpty(Employee.PlaceOfResidence)
                 || string.IsNullOrEmpty(Employee.GraduatedFromGrades)
