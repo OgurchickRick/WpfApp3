@@ -78,5 +78,36 @@ namespace WpfApp3
             }
         }
 
+        private void RadioButton_Click_Gender(object sender, RoutedEventArgs e)
+        {
+            RadioButton radioButton = (RadioButton)sender;
+            if (radioButton.IsChecked == true)
+            {
+                Employee.Gender = (string)radioButton.Content;
+            }
+        }
+
+        private void RadioButton_Click_GraduatedFromGrades(object sender, RoutedEventArgs e)
+        {
+            RadioButton radioButton = (RadioButton)sender;
+            if (radioButton.IsChecked == true)
+            {
+                Employee.GraduatedFromGrades = (string)radioButton.Content;
+            }
+        }
+
+        private void RadioButton_Click_FinishedOnly(object sender, RoutedEventArgs e)
+        {
+            RadioButton radioButton = (RadioButton)sender;
+            if (radioButton.Content.Equals("Нет"))
+            {
+                fieldFinishedOnly.IsEnabled = true;
+                Employee.FinishedOnly = fieldFinishedOnly.Text;
+            }else
+            {
+                Employee.FinishedOnly = "Да";
+                fieldFinishedOnly.IsEnabled = false;
+            }
+        }
     }
 }

@@ -97,16 +97,8 @@
         </TextBox>
 
         <StackPanel Orientation="Horizontal" x:Name="fieldGender" Grid.Column="1" Grid.Row="3" Margin="8,6,8,10">
-            <RadioButton Margin="8,0,8,0" GroupName="Response" Content="Мужской" IsChecked="True">
-                <RadioButton.Content>
-                    <Binding Path="Gender" NotifyOnValidationError="True">
-                        <Binding.ValidationRules>
-                            <DataErrorValidationRule />
-                        </Binding.ValidationRules>
-                    </Binding>
-                </RadioButton.Content>
-            </RadioButton>
-                <RadioButton Margin="8,0,8,0" GroupName="Response" Content="Женский" />
+            <RadioButton Margin="8,0,8,0" GroupName="Response" Content="Мужской" IsChecked="True" Click="RadioButton_Click_Gender"/>
+            <RadioButton Margin="8,0,8,0" GroupName="Response" Content="Женский" Click="RadioButton_Click_Gender"/>
         </StackPanel>
 
         <DatePicker Name="datePicker1" IsDropDownOpen="True" SelectedDateFormat="Short" Grid.Column="1" Grid.Row="4" Margin="8,0,8,10"/>
@@ -269,14 +261,14 @@
         </ComboBox>
 
         <StackPanel Orientation="Horizontal" x:Name="PanelGraduatedFromGrades" Grid.Column="1" Grid.Row="8" Margin="8,6,8,10">
-            <RadioButton Margin="8,0,8,0" GroupName="Response" Content="9" IsChecked="True" />
-            <RadioButton Margin="8,0,8,0" GroupName="Response" Content="11" />
+            <RadioButton Margin="8,0,8,0" GroupName="Response" Content="9" IsChecked="True" Click="RadioButton_Click_GraduatedFromGrades"/>
+            <RadioButton Margin="8,0,8,0" GroupName="Response" Content="11" Click="RadioButton_Click_GraduatedFromGrades"/>
         </StackPanel>
 
         <StackPanel Orientation="Horizontal" x:Name="PanelFinishedOnly" Grid.Column="1" Grid.Row="9" Margin="8,6,8,10">
-            <RadioButton Margin="8,0,8,0" GroupName="Response" Content="Да" IsChecked="True" />
-            <RadioButton Margin="8,0,8,0" GroupName="Response" Content="Нет" />
-            <TextBox x:Name="fieldFinishedOnly" VerticalContentAlignment="Center" FontSize="12" Margin="0,0,0,0" Width="365">
+            <RadioButton Margin="8,0,8,0" GroupName="Response" Content="Да" IsChecked="True" Click="RadioButton_Click_FinishedOnly"/>
+            <RadioButton Margin="8,0,8,0" GroupName="Response" Content="Нет" Click="RadioButton_Click_FinishedOnly"/>
+            <TextBox x:Name="fieldFinishedOnly" VerticalContentAlignment="Center" FontSize="12" Margin="0,0,0,0" Width="365" IsEnabled="False">
                 <TextBox.Text>
                     <Binding Path="FinishedOnly" NotifyOnValidationError="True">
                         <Binding.ValidationRules>
