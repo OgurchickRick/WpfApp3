@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace WpfApp3.Migrations
 {
     [DbContext(typeof(SqlLiteDbContext))]
-    [Migration("20230607124157_Add")]
+    [Migration("20230607125722_Add")]
     partial class Add
     {
         /// <inheritdoc />

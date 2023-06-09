@@ -10,7 +10,6 @@ public class Employee
     public string Gender { get; set; }
     public string Date_of_Birth { get; set; }
     public int Age { get; set; }
-    public int FullYears { get; set; }
     public string Citizenship { get; set; }
     public string PlaceOfResidence { get; set; }
     public string GraduatedFromGrades { get; set; }

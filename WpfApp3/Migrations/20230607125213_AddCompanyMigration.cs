@@ -5,7 +5,7 @@
 namespace WpfApp3.Migrations
 {
     /// <inheritdoc />
-    public partial class Add : Migration
+    public partial class AddCompanyMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

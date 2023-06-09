@@ -1,4 +1,8 @@
-﻿using System.Windows;
+﻿using Microsoft.Win32;
+using System.Globalization;
+using System;
+using System.IO;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace WpfApp3
@@ -21,7 +25,6 @@ namespace WpfApp3
                 || string.IsNullOrEmpty(Employee.Gender)
                 || string.IsNullOrEmpty(Employee.Date_of_Birth)
                 || int.IsPositive(Employee.Age)
-                || int.IsNegative(Employee.FullYears)
                 || string.IsNullOrEmpty(Employee.Citizenship)
                 || string.IsNullOrEmpty(Employee.PlaceOfResidence)
                 || string.IsNullOrEmpty(Employee.GraduatedFromGrades)
@@ -38,5 +41,42 @@ namespace WpfApp3
                 DialogResult = true; 
             }
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var dialog = new OpenFileDialog();
+            dialog.DefaultExt = ".png"; // Default file extension
+            dialog.Filter = "Image files (*.png;*.jpeg)|*.png;*.jpeg|All files (*.*)|*.*"; // Filter files by extension
+
+            // Show open file dialog box
+            bool? result = dialog.ShowDialog();
+
+            // Process open file dialog box results
+            if (result == true)
+            {
+                // Open document
+                string filename = dialog.FileName;
+                DisabilityCertificateFile.Text = File.ReadAllText(dialog.FileName);
+            }
+        }
+
+        private void Button_Click_Orphan(object sender, RoutedEventArgs e)
+        {
+            var dialog = new OpenFileDialog();
+            dialog.DefaultExt = ".png"; // Default file extension
+            dialog.Filter = "Image files (*.png;*.jpeg)|*.png;*.jpeg|All files (*.*)|*.*"; // Filter files by extension
+
+            // Show open file dialog box
+            bool? result = dialog.ShowDialog();
+
+            // Process open file dialog box results
+            if (result == true)
+            {
+                // Open document
+                string filename = dialog.FileName;
+                OrphanFile.Text = File.ReadAllText(dialog.FileName);
+            }
+        }
+
     }
 }
