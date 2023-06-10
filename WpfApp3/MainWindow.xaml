@@ -16,6 +16,7 @@
                             <Run Text="{Binding Name}" FontSize="16"/>
                             <Run Text="{Binding Patronymic}" FontSize="16"/>
                             <Run Text="{Binding Speciality}" FontSize="16"/>
+                            <Run Text="{Binding YearOfAdmission}" FontSize="16"/>
                             <Run Text="{Binding Enrollment}" FontSize="16"/>
                         </TextBlock>
                     </StackPanel>

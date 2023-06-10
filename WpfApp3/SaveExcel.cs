@@ -26,19 +26,20 @@ namespace WpfApp3.Reports
                     worksheet.Cells[1, 3].Value = "Отчество";
                     worksheet.Cells[1, 4].Value = "Пол";
                     worksheet.Cells[1, 5].Value = "Дата рождения";
+                    worksheet.Cells[1, 5].Style.Numberformat.Format = "dd.mm.yyyy";
                     worksheet.Cells[1, 6].Value = "Полных лет";
                     worksheet.Cells[1, 7].Value = "Гражданство";
                     worksheet.Cells[1, 8].Value = "Место проживания";
-                    worksheet.Cells[1, 9].Value = "Закончил классов(9/11)";
+                    worksheet.Cells[1, 9].Value = "Закончил классов";
                     worksheet.Cells[1, 10].Value = "Закончил только(9/11)";
                     worksheet.Cells[1, 11].Value = "Средний балл аттестата";
                     worksheet.Cells[1, 12].Value = "СНИЛС";
                     worksheet.Cells[1, 13].Value = "Наличие справки об инвалидности";
                     worksheet.Cells[1, 14].Value = "Наличие документа о сиротстве(опекунстве)";
                     worksheet.Cells[1, 15].Value = "Специальность";
-                    worksheet.Cells[1, 16].Value = "Аттестат(оригинал/копия)";
+                    worksheet.Cells[1, 16].Value = "Аттестат";
                     worksheet.Cells[1, 17].Value = "Бюджет/Договор об оказании платных образовательных услуг";
-                    worksheet.Cells[1, 18].Value = "Зачислен/Нет";
+                    worksheet.Cells[1, 18].Value = "Зачислен";
                     worksheet.Cells[1, 19].Value = "Год поступления";
                     int count = 2;
                     foreach (Employee employee in data)
@@ -47,7 +48,7 @@ namespace WpfApp3.Reports
                         worksheet.Cells[count, 2].Value = employee.Name;
                         worksheet.Cells[count, 3].Value = employee.Patronymic;
                         worksheet.Cells[count, 4].Value = employee.Gender;
-                        worksheet.Cells[count, 5].Value = employee.Date_of_Birth;
+                        worksheet.Cells[count, 5].Value = employee.Date_of_Birth.ToString("dd.MM.yyyy");
                         worksheet.Cells[count, 6].Value = employee.Age;
                         worksheet.Cells[count, 7].Value = employee.Citizenship;
                         worksheet.Cells[count, 8].Value = employee.PlaceOfResidence;

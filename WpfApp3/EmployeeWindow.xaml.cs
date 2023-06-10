@@ -151,9 +151,13 @@ namespace WpfApp3
         private void RadioButton_Click_Enrollment(object sender, RoutedEventArgs e)
         {
             RadioButton radioButton = (RadioButton)sender;
-            if (radioButton.IsChecked == true)
+            if (radioButton.Content.Equals("Нет"))
             {
-                Employee.Enrollment = (string)radioButton.Content;
+                Employee.Enrollment = "Не зачислен";
+            }
+            else
+            {
+                Employee.Enrollment = "Зачислен";
             }
         }
 
@@ -168,24 +172,29 @@ namespace WpfApp3
             Employee.Date_of_Birth = (DateTime)datePicker1.SelectedDate;
         }
 
-        private void fieldSpeciality_ContextMenuClosing(object sender, ContextMenuEventArgs e)
+        private void fieldCitizenship_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Employee.Speciality = fieldSpeciality.SelectedItem.ToString();
+            TextBlock selectBlock = (TextBlock)fieldCitizenship.SelectedItem;
+            Employee.Citizenship = selectBlock.Text;
         }
 
-        private void fieldPORKostroma_ContextMenuClosing(object sender, ContextMenuEventArgs e)
+        private void fieldPlaceOfResidence_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Employee.PlaceOfResidence = fieldPlaceOfResidence.SelectedItem.ToString() + fieldPORKostroma.SelectedItem.ToString();
+            TextBlock selectBlock = (TextBlock)fieldPlaceOfResidence.SelectedItem;
+            Employee.PlaceOfResidence = selectBlock.Text;
         }
 
-        private void fieldPlaceOfResidence_ContextMenuClosing(object sender, ContextMenuEventArgs e)
+        private void fieldPORKostroma_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Employee.PlaceOfResidence = fieldPlaceOfResidence.SelectedItem.ToString();
+            TextBlock selectBlock1 = (TextBlock)fieldPlaceOfResidence.SelectedItem;
+            TextBlock selectBlock2 = (TextBlock)fieldPORKostroma.SelectedItem;
+            Employee.PlaceOfResidence = selectBlock1.Text + " " + selectBlock2.Text;
         }
 
-        private void fieldCitizenship_ContextMenuClosing(object sender, ContextMenuEventArgs e)
+        private void fieldSpeciality_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Employee.Citizenship = fieldCitizenship.SelectedItem.ToString();
+            TextBlock selectBlock = (TextBlock)fieldSpeciality.SelectedItem;
+            Employee.Speciality = selectBlock.Text;
         }
     }
 }

@@ -113,7 +113,7 @@
             </TextBox.Text>
         </TextBox>
         
-        <ComboBox x:Name="fieldCitizenship" Grid.Column="1" VerticalContentAlignment="Center" Grid.Row="6" Margin="8,6,8,10"  Padding="0, 0, 0, 0" ContextMenuClosing="fieldCitizenship_ContextMenuClosing">
+        <ComboBox x:Name="fieldCitizenship" Grid.Column="1" VerticalContentAlignment="Center" Grid.Row="6" Margin="8,6,8,10"  Padding="0, 0, 0, 0" SelectionChanged="fieldCitizenship_SelectionChanged">
             <TextBlock Width="500" Margin="8, 0, 0, 0">
                 <TextBlock.Text>
                     <Binding Path="Citizenship" NotifyOnValidationError="True">
@@ -135,7 +135,7 @@
             <Button>Другое</Button>
         </ComboBox>
         
-        <ComboBox  x:Name="fieldPlaceOfResidence" Grid.Column="1" VerticalContentAlignment="Center" Grid.Row="7" Margin="8,6,8,10"  Padding="0, 0, 0, 0" ContextMenuClosing="fieldPlaceOfResidence_ContextMenuClosing">
+        <ComboBox  x:Name="fieldPlaceOfResidence" Grid.Column="1" VerticalContentAlignment="Center" Grid.Row="7" Margin="8,6,8,10"  Padding="0, 0, 0, 0" SelectionChanged="fieldPlaceOfResidence_SelectionChanged">
             <TextBlock Width="500" Margin="8, 0, 0, 0">Республика Адыгея</TextBlock>
             <TextBlock Width="500" Margin="8, 0, 0, 0">Республика Алтай</TextBlock>
             <TextBlock Width="500" Margin="8, 0, 0, 0">Республика Башкортостан</TextBlock>
@@ -187,7 +187,7 @@
             <TextBlock Width="500" Margin="8, 0, 0, 0">Кировская область</TextBlock>
             <StackPanel Width="500" Orientation="Horizontal">
                 <TextBlock Width="200" Margin="8, 0, 0, 0">Костромская область</TextBlock>
-                <ComboBox x:Name="fieldPORKostroma" Padding="0, 0, 0, 0" VerticalContentAlignment="Center" Width="300" ContextMenuClosing="fieldPORKostroma_ContextMenuClosing">
+                <ComboBox x:Name="fieldPORKostroma" Padding="0, 0, 0, 0" VerticalContentAlignment="Center" Width="300" SelectionChanged="fieldPORKostroma_SelectionChanged">
                     <TextBlock Width="300" Margin="8, 0, 0, 0">г.Кострома</TextBlock>
                     <TextBlock Width="300" Margin="8, 0, 0, 0">г.Буй</TextBlock>
                     <TextBlock Width="300" Margin="8, 0, 0, 0">г.Волгореченск</TextBlock>
@@ -313,7 +313,7 @@
             <TextBox x:Name="OrphanFile" Margin="8,0,8,0" Width="249" IsEnabled="False"/>
         </StackPanel>
 
-        <ComboBox x:Name="fieldSpeciality" Grid.Column="1" Grid.Row="14" VerticalContentAlignment="Center" Margin="8,6,8,10" ContextMenuClosing="fieldSpeciality_ContextMenuClosing">
+        <ComboBox x:Name="fieldSpeciality" Grid.Column="1" Grid.Row="14" VerticalContentAlignment="Center" Margin="8,6,8,10" SelectionChanged="fieldSpeciality_SelectionChanged">
             <TextBlock Width="500" Margin="8, 0, 0, 0">«Архитектура»</TextBlock>
             <TextBlock Width="500" Margin="8, 0, 0, 0">«Гидрогеология и инженерная геология»</TextBlock>
             <TextBlock Width="500" Margin="8, 0, 0, 0">«Информационные системы и программирование»</TextBlock>
