@@ -1,11 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
 namespace WpfApp3.Migrations
 {
     /// <inheritdoc />
-    public partial class AddCompanyMigration : Migration
+    public partial class цкпл : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -20,9 +21,8 @@ namespace WpfApp3.Migrations
                     Surname = table.Column<string>(type: "TEXT", nullable: false),
                     Patronymic = table.Column<string>(type: "TEXT", nullable: false),
                     Gender = table.Column<string>(type: "TEXT", nullable: false),
-                    DateofBirth = table.Column<string>(name: "Date_of_Birth", type: "TEXT", nullable: false),
+                    DateofBirth = table.Column<DateTime>(name: "Date_of_Birth", type: "TEXT", nullable: false),
                     Age = table.Column<int>(type: "INTEGER", nullable: false),
-                    FullYears = table.Column<int>(type: "INTEGER", nullable: false),
                     Citizenship = table.Column<string>(type: "TEXT", nullable: false),
                     PlaceOfResidence = table.Column<string>(type: "TEXT", nullable: false),
                     GraduatedFromGrades = table.Column<string>(type: "TEXT", nullable: false),
@@ -32,9 +32,9 @@ namespace WpfApp3.Migrations
                     DisabilityCertificate = table.Column<string>(type: "TEXT", nullable: false),
                     Orphan = table.Column<string>(type: "TEXT", nullable: false),
                     Speciality = table.Column<string>(type: "TEXT", nullable: false),
-                    Certificate = table.Column<bool>(type: "INTEGER", nullable: false),
+                    Certificate = table.Column<string>(type: "TEXT", nullable: false),
                     Money = table.Column<string>(type: "TEXT", nullable: false),
-                    Enrollment = table.Column<bool>(type: "INTEGER", nullable: false),
+                    Enrollment = table.Column<string>(type: "TEXT", nullable: false),
                     YearOfAdmission = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>

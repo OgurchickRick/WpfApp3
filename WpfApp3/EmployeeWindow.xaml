@@ -61,7 +61,7 @@
         <TextBlock Text="Наличие справки об инвалидности" Grid.Row="12" VerticalAlignment="Center" />
         <TextBlock Text="Наличие документа о сиротстве(опекунстве)" Grid.Row="13" VerticalAlignment="Center" />
         <TextBlock Text="Специальность" Grid.Row="14" VerticalAlignment="Center" />
-        <TextBlock Text="Аттестат(оригинал/копия)" Grid.Row="15" VerticalAlignment="Center" />
+        <TextBlock Text="Аттестат" Grid.Row="15" VerticalAlignment="Center" />
         <TextBlock Text="Бюджет/Договор об оказании платных образовательных услуг" Grid.Row="16" VerticalAlignment="Center" />
         <TextBlock Text="Зачислен" Grid.Row="17" VerticalAlignment="Center" />
         <TextBlock Text="Год поступления" Grid.Row="18" VerticalAlignment="Center" />
@@ -101,7 +101,7 @@
             <RadioButton Margin="8,0,8,0" GroupName="Response" Content="Женский" Click="RadioButton_Click_Gender"/>
         </StackPanel>
 
-        <DatePicker Name="datePicker1" IsDropDownOpen="True" SelectedDateFormat="Short" Grid.Column="1" Grid.Row="4" Margin="8,0,8,10"/>
+        <DatePicker Text="01.01.2004" Name="datePicker1" IsDropDownOpen="True" SelectedDateFormat="Short" Grid.Column="1" Grid.Row="4" Margin="8,0,8,10" DataContextChanged="datePicker1_DataContextChanged"/>
 
         <TextBox x:Name="fieldAge" Grid.Column="1" Grid.Row="5" VerticalContentAlignment="Center" Margin="8,6,8,10">
             <TextBox.Text>
@@ -113,7 +113,7 @@
             </TextBox.Text>
         </TextBox>
         
-        <ComboBox x:Name="fieldCitizenship" Grid.Column="1" VerticalContentAlignment="Center" Grid.Row="6" Margin="8,6,8,10"  Padding="0, 0, 0, 0">
+        <ComboBox x:Name="fieldCitizenship" Grid.Column="1" VerticalContentAlignment="Center" Grid.Row="6" Margin="8,6,8,10"  Padding="0, 0, 0, 0" ContextMenuClosing="fieldCitizenship_ContextMenuClosing">
             <TextBlock Width="500" Margin="8, 0, 0, 0">
                 <TextBlock.Text>
                     <Binding Path="Citizenship" NotifyOnValidationError="True">
@@ -135,7 +135,7 @@
             <Button>Другое</Button>
         </ComboBox>
         
-        <ComboBox  x:Name="fieldPlaceOfResidence" Grid.Column="1" VerticalContentAlignment="Center" Grid.Row="7" Margin="8,6,8,10"  Padding="0, 0, 0, 0">
+        <ComboBox  x:Name="fieldPlaceOfResidence" Grid.Column="1" VerticalContentAlignment="Center" Grid.Row="7" Margin="8,6,8,10"  Padding="0, 0, 0, 0" ContextMenuClosing="fieldPlaceOfResidence_ContextMenuClosing">
             <TextBlock Width="500" Margin="8, 0, 0, 0">Республика Адыгея</TextBlock>
             <TextBlock Width="500" Margin="8, 0, 0, 0">Республика Алтай</TextBlock>
             <TextBlock Width="500" Margin="8, 0, 0, 0">Республика Башкортостан</TextBlock>
@@ -187,7 +187,7 @@
             <TextBlock Width="500" Margin="8, 0, 0, 0">Кировская область</TextBlock>
             <StackPanel Width="500" Orientation="Horizontal">
                 <TextBlock Width="200" Margin="8, 0, 0, 0">Костромская область</TextBlock>
-                <ComboBox Padding="0, 0, 0, 0" VerticalContentAlignment="Center" Width="300">
+                <ComboBox x:Name="fieldPORKostroma" Padding="0, 0, 0, 0" VerticalContentAlignment="Center" Width="300" ContextMenuClosing="fieldPORKostroma_ContextMenuClosing">
                     <TextBlock Width="300" Margin="8, 0, 0, 0">г.Кострома</TextBlock>
                     <TextBlock Width="300" Margin="8, 0, 0, 0">г.Буй</TextBlock>
                     <TextBlock Width="300" Margin="8, 0, 0, 0">г.Волгореченск</TextBlock>
@@ -261,13 +261,13 @@
         </ComboBox>
 
         <StackPanel Orientation="Horizontal" x:Name="PanelGraduatedFromGrades" Grid.Column="1" Grid.Row="8" Margin="8,6,8,10">
-            <RadioButton Margin="8,0,8,0" GroupName="Response" Content="9" IsChecked="True" Click="RadioButton_Click_GraduatedFromGrades"/>
-            <RadioButton Margin="8,0,8,0" GroupName="Response" Content="11" Click="RadioButton_Click_GraduatedFromGrades"/>
+            <RadioButton Margin="8,0,8,0" GroupName="Response2" Content="9" IsChecked="True" Click="RadioButton_Click_GraduatedFromGrades"/>
+            <RadioButton Margin="8,0,8,0" GroupName="Response2" Content="11" Click="RadioButton_Click_GraduatedFromGrades"/>
         </StackPanel>
 
         <StackPanel Orientation="Horizontal" x:Name="PanelFinishedOnly" Grid.Column="1" Grid.Row="9" Margin="8,6,8,10">
-            <RadioButton Margin="8,0,8,0" GroupName="Response" Content="Да" IsChecked="True" Click="RadioButton_Click_FinishedOnly"/>
-            <RadioButton Margin="8,0,8,0" GroupName="Response" Content="Нет" Click="RadioButton_Click_FinishedOnly"/>
+            <RadioButton Margin="8,0,8,0" GroupName="Response3" Content="Да" IsChecked="True" Click="RadioButton_Click_FinishedOnly"/>
+            <RadioButton Margin="8,0,8,0" GroupName="Response3" Content="Нет" Click="RadioButton_Click_FinishedOnly"/>
             <TextBox x:Name="fieldFinishedOnly" VerticalContentAlignment="Center" FontSize="12" Margin="0,0,0,0" Width="365" IsEnabled="False">
                 <TextBox.Text>
                     <Binding Path="FinishedOnly" NotifyOnValidationError="True">
@@ -300,20 +300,20 @@
         </TextBox>
 
         <StackPanel Orientation="Horizontal" x:Name="fieldDisabilityCertificate" Grid.Column="1" Grid.Row="12" Margin="8,6,8,10">
-            <RadioButton Margin="8,0,8,0" GroupName="Response" Content="Да" IsChecked="True" />
-            <RadioButton Margin="8,0,8,0" GroupName="Response" Content="Нет" />
-            <Button Margin="8,0,0,0" Click="Button_Click">Загрузить файл</Button>
-            <TextBox x:Name="DisabilityCertificateFile" Margin="8,0,8,0" Width="249"/>
+            <RadioButton Margin="8,0,8,0" GroupName="Response4" Content="Да" Click="RadioButton_Click_DisabilityCertificate" />
+            <RadioButton Margin="8,0,8,0" GroupName="Response4" Content="Нет" IsChecked="True" Click="RadioButton_Click_DisabilityCertificate"/>
+            <Button x:Name="DCButton" Margin="8,0,0,0" Click="Button_Click" IsEnabled="False">Загрузить файл</Button>
+            <TextBox x:Name="DisabilityCertificateFile" Margin="8,0,8,0" Width="249" IsEnabled="False"/>
         </StackPanel>
 
         <StackPanel Orientation="Horizontal" x:Name="fieldOrphan" Grid.Column="1" Grid.Row="13" Margin="8,6,8,10">
-            <RadioButton Margin="8,0,8,0" GroupName="Response" Content="Да" IsChecked="True" />
-            <RadioButton Margin="8,0,8,0" GroupName="Response" Content="Нет" />
-            <Button Margin="8,0,0,0" Click="Button_Click_Orphan">Загрузить файл</Button>
-            <TextBox x:Name="OrphanFile" Margin="8,0,8,0" Width="249"/>
+            <RadioButton Margin="8,0,8,0" GroupName="Response5" Content="Да" Click="RadioButton_Click_Orphan"  />
+            <RadioButton Margin="8,0,8,0" GroupName="Response5" Content="Нет" IsChecked="True" Click="RadioButton_Click_Orphan"/>
+            <Button x:Name="OrphanButton" Margin="8,0,0,0" Click="Button_Click_Orphan" IsEnabled="False">Загрузить файл</Button>
+            <TextBox x:Name="OrphanFile" Margin="8,0,8,0" Width="249" IsEnabled="False"/>
         </StackPanel>
 
-        <ComboBox x:Name="fieldSpeciality" Grid.Column="1" Grid.Row="14" VerticalContentAlignment="Center" Margin="8,6,8,10">
+        <ComboBox x:Name="fieldSpeciality" Grid.Column="1" Grid.Row="14" VerticalContentAlignment="Center" Margin="8,6,8,10" ContextMenuClosing="fieldSpeciality_ContextMenuClosing">
             <TextBlock Width="500" Margin="8, 0, 0, 0">«Архитектура»</TextBlock>
             <TextBlock Width="500" Margin="8, 0, 0, 0">«Гидрогеология и инженерная геология»</TextBlock>
             <TextBlock Width="500" Margin="8, 0, 0, 0">«Информационные системы и программирование»</TextBlock>
@@ -323,21 +323,21 @@
         </ComboBox>
 
         <StackPanel Orientation="Horizontal"  x:Name="fieldCertificate" Grid.Column="1" Grid.Row="15" Margin="8,6,8,10">
-            <RadioButton Margin="8,0,8,0" GroupName="Response" Content="Оригинал" IsChecked="True" />
-            <RadioButton Margin="8,0,8,0" GroupName="Response" Content="Копия" />
+            <RadioButton Margin="8,0,8,0" GroupName="Response6" Content="Оригинал" IsChecked="True" Click="RadioButton_Click_Certificate" />
+            <RadioButton Margin="8,0,8,0" GroupName="Response6" Content="Копия" Click="RadioButton_Click_Certificate"/>
         </StackPanel>
 
         <StackPanel Orientation="Horizontal" x:Name="fieldMoney" Grid.Column="1" Grid.Row="16" Margin="8,6,8,10">
-            <RadioButton Margin="8,0,8,0" GroupName="Response" Content="Бюджет" IsChecked="True" />
-            <RadioButton Margin="8,0,8,0" GroupName="Response" Content="Договор об оказании платных образовательных услуг" />
+            <RadioButton Margin="8,0,8,0" GroupName="Response7" Content="Бюджет" IsChecked="True" Click="RadioButton_Click_Money" />
+            <RadioButton Margin="8,0,8,0" GroupName="Response7" Content="Договор об оказании платных образовательных услуг" Click="RadioButton_Click_Money"/>
         </StackPanel>
 
         <StackPanel Orientation="Horizontal" x:Name="fieldEnrollment" Grid.Column="1" Grid.Row="17" Margin="8,6,8,10">
-            <RadioButton Margin="8,0,8,0" GroupName="Response" Content="Да" IsChecked="True" />
-            <RadioButton Margin="8,0,8,0" GroupName="Response" Content="Нет" />
+            <RadioButton Margin="8,0,8,0" GroupName="Response8" Content="Да" Click="RadioButton_Click_Enrollment" />
+            <RadioButton Margin="8,0,8,0" GroupName="Response8" Content="Нет" Click="RadioButton_Click_Enrollment"/>
         </StackPanel>
 
-        <TextBox x:Name="fieldYearOfAdmission" Grid.Column="1" Grid.Row="18" VerticalContentAlignment="Center" Margin="8,6,8,10">
+        <TextBox x:Name="fieldYearOfAdmission" Grid.Column="1" Grid.Row="18" VerticalContentAlignment="Center" Margin="8,6,8,10" TextChanged="fieldYearOfAdmission_TextChanged">
             <TextBox.Text>
                 <Binding Path="YearOfAdmission" NotifyOnValidationError="True">
                     <Binding.ValidationRules>
