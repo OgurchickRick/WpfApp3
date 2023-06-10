@@ -8,7 +8,7 @@ public class Employee
     public string Surname { get; set; }
     public string Patronymic { get; set; }
     public string Gender { get; set; }
-    public DateTime Date_of_Birth { get; set; }
+    public DateTime Date_of_Birth { get; set; } = new DateTime(2006, 01, 01);
     public int Age { get; set; }
     public string Citizenship { get; set; }
     public string PlaceOfResidence { get; set; }

@@ -167,11 +167,6 @@ namespace WpfApp3
             Employee.YearOfAdmission = DateTime.Now.Year;
         }
 
-        private void datePicker1_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
-        {
-            Employee.Date_of_Birth = (DateTime)datePicker1.SelectedDate;
-        }
-
         private void fieldCitizenship_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             TextBlock selectBlock = (TextBlock)fieldCitizenship.SelectedItem;
@@ -180,21 +175,32 @@ namespace WpfApp3
 
         private void fieldPlaceOfResidence_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            TextBlock selectBlock = (TextBlock)fieldPlaceOfResidence.SelectedItem;
-            Employee.PlaceOfResidence = selectBlock.Text;
+            ComboBox comboBox = (ComboBox)sender;
+            string selectedValue = comboBox.SelectedItem.ToString();
+            Employee.PlaceOfResidence = selectedValue;
         }
 
         private void fieldPORKostroma_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            TextBlock selectBlock1 = (TextBlock)fieldPlaceOfResidence.SelectedItem;
-            TextBlock selectBlock2 = (TextBlock)fieldPORKostroma.SelectedItem;
-            Employee.PlaceOfResidence = selectBlock1.Text + " " + selectBlock2.Text;
+            if (sender == fieldPORKostroma)
+            {
+                Employee.PlaceOfResidence = "Костромская область " + ((TextBlock)fieldPORKostroma.SelectedItem).Text;
+            }
         }
 
         private void fieldSpeciality_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             TextBlock selectBlock = (TextBlock)fieldSpeciality.SelectedItem;
             Employee.Speciality = selectBlock.Text;
+        }
+
+        private void fieldAge_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            DateTime currentDate = DateTime.Now; 
+            int age = currentDate.Year - Employee.Date_of_Birth.Year; 
+            if (Employee.Date_of_Birth > currentDate.AddYears(-age)) age--;
+            fieldAge.Text = age.ToString();
+            Employee.Age = age;
         }
     }
 }

@@ -101,9 +101,9 @@
             <RadioButton Margin="8,0,8,0" GroupName="Response" Content="Женский" Click="RadioButton_Click_Gender"/>
         </StackPanel>
 
-        <DatePicker Text="01.01.2004" Name="datePicker1" IsDropDownOpen="True" SelectedDateFormat="Short" Grid.Column="1" Grid.Row="4" Margin="8,0,8,10" DataContextChanged="datePicker1_DataContextChanged"/>
+        <DatePicker SelectedDate="{Binding Date_of_Birth}" Name="datePicker1" IsDropDownOpen="True" SelectedDateFormat="Short" Grid.Column="1" Grid.Row="4" Margin="8,0,8,10"/>
 
-        <TextBox x:Name="fieldAge" Grid.Column="1" Grid.Row="5" VerticalContentAlignment="Center" Margin="8,6,8,10">
+        <TextBox x:Name="fieldAge" Grid.Column="1" Grid.Row="5" VerticalContentAlignment="Center" Margin="8,6,8,10" TextChanged="fieldAge_TextChanged">
             <TextBox.Text>
                 <Binding Path="Age" NotifyOnValidationError="True">
                     <Binding.ValidationRules>
@@ -185,7 +185,7 @@
             <TextBlock Width="500" Margin="8, 0, 0, 0">Калужская область</TextBlock>
             <TextBlock Width="500" Margin="8, 0, 0, 0">Кемеровская область — Кузбасс</TextBlock>
             <TextBlock Width="500" Margin="8, 0, 0, 0">Кировская область</TextBlock>
-            <StackPanel Width="500" Orientation="Horizontal">
+            <StackPanel x:Name="test" Width="500" Orientation="Horizontal">
                 <TextBlock Width="200" Margin="8, 0, 0, 0">Костромская область</TextBlock>
                 <ComboBox x:Name="fieldPORKostroma" Padding="0, 0, 0, 0" VerticalContentAlignment="Center" Width="300" SelectionChanged="fieldPORKostroma_SelectionChanged">
                     <TextBlock Width="300" Margin="8, 0, 0, 0">г.Кострома</TextBlock>

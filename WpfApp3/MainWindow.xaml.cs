@@ -147,5 +147,30 @@ namespace WpfApp3
             SaveExcel save = new SaveExcel(db.Employee);
         }
 
+        private void poiskfield_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+            var Poisk = db.Employee.ToList();
+            Poisk = Poisk.Where(p => p.Surname.ToLower().Contains(poiskfield.Text.ToLower())
+            || p.Name.ToLower().Contains(poiskfield.Text.ToLower())
+            || p.Patronymic.ToLower().Contains(poiskfield.Text.ToLower())
+            || p.YearOfAdmission.ToString().ToLower().Contains(poiskfield.Text.ToLower())
+            || p.Enrollment.ToLower().Contains(poiskfield.Text.ToLower())
+            || p.Money.ToLower().Contains(poiskfield.Text.ToLower())
+            || p.Speciality.ToLower().Contains(poiskfield.Text.ToLower())
+            || p.Gender.ToLower().Contains(poiskfield.Text.ToLower())
+            || p.Citizenship.ToLower().Contains(poiskfield.Text.ToLower())
+            || p.PlaceOfResidence.ToLower().Contains(poiskfield.Text.ToLower())
+            || p.AverageScoreOfCertificate.ToString().ToLower().Contains(poiskfield.Text.ToLower())
+            || p.Money.ToLower().Contains(poiskfield.Text.ToLower())
+            || p.Certificate.ToString().ToLower().Contains(poiskfield.Text.ToLower())).ToList();
+            DataContext = Poisk;
+            Result.Text = Poisk.Count.ToString();
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            ExportToWord exportToWord = new ExportToWord();
+            exportToWord.SaveToWord();
+        }
     }
 }
