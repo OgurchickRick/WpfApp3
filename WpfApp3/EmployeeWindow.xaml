@@ -132,6 +132,7 @@
             <TextBlock Width="500" Margin="8, 0, 0, 0">Туркменистан</TextBlock>
             <TextBlock Width="500" Margin="8, 0, 0, 0">Республика Узбекистан</TextBlock>
             <TextBlock Width="500" Margin="8, 0, 0, 0">Украина</TextBlock>
+            <TextBlock Width="500" Margin="8, 0, 0, 0">Иностранный гражданин</TextBlock>
             <Button>Другое</Button>
         </ComboBox>
         
@@ -258,6 +259,7 @@
             <TextBlock Width="500" Margin="8, 0, 0, 0">Ханты-Мансийский АО — Югра</TextBlock>
             <TextBlock Width="500" Margin="8, 0, 0, 0">Чукотский АО</TextBlock>
             <TextBlock Width="500" Margin="8, 0, 0, 0">Ямало-Ненецкий АО</TextBlock>
+            <TextBlock Width="500" Margin="8, 0, 0, 0">Иностранный гражданин</TextBlock>
         </ComboBox>
 
         <StackPanel Orientation="Horizontal" x:Name="PanelGraduatedFromGrades" Grid.Column="1" Grid.Row="8" Margin="8,6,8,10">

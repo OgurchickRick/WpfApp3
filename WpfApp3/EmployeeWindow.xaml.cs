@@ -21,7 +21,23 @@ namespace WpfApp3
         {
             bool isError = string.IsNullOrEmpty(Employee.Surname)
                 || string.IsNullOrEmpty(Employee.Name)
-                || string.IsNullOrEmpty(Employee.Patronymic);
+                || string.IsNullOrEmpty(Employee.Patronymic)
+                || string.IsNullOrEmpty(Employee.Gender)
+                || string.IsNullOrEmpty(Employee.Date_of_Birth.ToString())
+                || string.IsNullOrEmpty(Employee.Age.ToString())
+                || string.IsNullOrEmpty(Employee.Citizenship)
+                || string.IsNullOrEmpty(Employee.PlaceOfResidence)
+                || string.IsNullOrEmpty(Employee.GraduatedFromGrades)
+                || string.IsNullOrEmpty(Employee.FinishedOnly)
+                || string.IsNullOrEmpty(Employee.AverageScoreOfCertificate.ToString())
+                || string.IsNullOrEmpty(Employee.Snils)
+                || string.IsNullOrEmpty(Employee.DisabilityCertificate)
+                || string.IsNullOrEmpty(Employee.Orphan)
+                || string.IsNullOrEmpty(Employee.Speciality)
+                || string.IsNullOrEmpty(Employee.Certificate)
+                || string.IsNullOrEmpty(Employee.Money)
+                || string.IsNullOrEmpty(Employee.Enrollment)
+                || string.IsNullOrEmpty(Employee.YearOfAdmission.ToString());
             if (!isError) 
             {
                 DialogResult = true; 
