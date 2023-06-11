@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp3"
         WindowState="Maximized"
+        Icon="Images/WindowIcon.png"
         mc:Ignorable="d" Height="450" Width="810" WindowStartupLocation="CenterScreen" Title="Приёмная комиссия">
     <Grid>
         <ListBox x:Name="employeeList" ItemsSource="{Binding}" Margin="10,30,170,10">
@@ -31,8 +32,16 @@
         </StackPanel>
         <Menu Height="25" Margin="10, 0, 10, 0" VerticalAlignment="Top">
             <MenuItem Header="Сохранить как" Height="25" Background="#fff" BorderThickness="2">
-                <MenuItem Header="Excel" Click="Excel_Click" ></MenuItem>
-                <MenuItem Header="Word" Click="MenuItem_Click" ></MenuItem>
+                <MenuItem Header="Excel" Click="Excel_Click" >
+                    <MenuItem.Icon>
+                        <Image Source="Images/ExcelIcon.png"></Image>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Word" Click="MenuItem_Click" >
+                    <MenuItem.Icon>
+                        <Image Source="Images/WordIcon.png"></Image>
+                    </MenuItem.Icon>
+                </MenuItem>
             </MenuItem>
             <TextBox x:Name="poiskfield" TextWrapping="Wrap" Width="320" Height="19" BorderBrush="#FF7D98E8" TextChanged="poiskfield_TextChanged"/>
             <TextBlock> Найдено абитуриентов: </TextBlock>

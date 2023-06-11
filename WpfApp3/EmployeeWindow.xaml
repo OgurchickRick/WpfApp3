@@ -97,7 +97,7 @@
         </TextBox>
 
         <StackPanel Orientation="Horizontal" x:Name="fieldGender" Grid.Column="1" Grid.Row="3" Margin="8,6,8,10">
-            <RadioButton Margin="8,0,8,0" GroupName="Response" Content="Мужской" IsChecked="True" Click="RadioButton_Click_Gender"/>
+            <RadioButton Margin="8,0,8,0" GroupName="Response" Content="Мужской" Click="RadioButton_Click_Gender"/>
             <RadioButton Margin="8,0,8,0" GroupName="Response" Content="Женский" Click="RadioButton_Click_Gender"/>
         </StackPanel>
 
@@ -263,12 +263,12 @@
         </ComboBox>
 
         <StackPanel Orientation="Horizontal" x:Name="PanelGraduatedFromGrades" Grid.Column="1" Grid.Row="8" Margin="8,6,8,10">
-            <RadioButton Margin="8,0,8,0" GroupName="Response2" Content="9" IsChecked="True" Click="RadioButton_Click_GraduatedFromGrades"/>
+            <RadioButton Margin="8,0,8,0" GroupName="Response2" Content="9" Click="RadioButton_Click_GraduatedFromGrades"/>
             <RadioButton Margin="8,0,8,0" GroupName="Response2" Content="11" Click="RadioButton_Click_GraduatedFromGrades"/>
         </StackPanel>
 
         <StackPanel Orientation="Horizontal" x:Name="PanelFinishedOnly" Grid.Column="1" Grid.Row="9" Margin="8,6,8,10">
-            <RadioButton Margin="8,0,8,0" GroupName="Response3" Content="Да" IsChecked="True" Click="RadioButton_Click_FinishedOnly"/>
+            <RadioButton Margin="8,0,8,0" GroupName="Response3" Content="Да" Click="RadioButton_Click_FinishedOnly"/>
             <RadioButton Margin="8,0,8,0" GroupName="Response3" Content="Нет" Click="RadioButton_Click_FinishedOnly"/>
             <TextBox x:Name="fieldFinishedOnly" VerticalContentAlignment="Center" FontSize="12" Margin="0,0,0,0" Width="365" IsEnabled="False">
                 <TextBox.Text>
@@ -303,14 +303,14 @@
 
         <StackPanel Orientation="Horizontal" x:Name="fieldDisabilityCertificate" Grid.Column="1" Grid.Row="12" Margin="8,6,8,10">
             <RadioButton Margin="8,0,8,0" GroupName="Response4" Content="Да" Click="RadioButton_Click_DisabilityCertificate" />
-            <RadioButton Margin="8,0,8,0" GroupName="Response4" Content="Нет" IsChecked="True" Click="RadioButton_Click_DisabilityCertificate"/>
+            <RadioButton Margin="8,0,8,0" GroupName="Response4" Content="Нет" Click="RadioButton_Click_DisabilityCertificate"/>
             <Button x:Name="DCButton" Margin="8,0,0,0" Click="Button_Click" IsEnabled="False">Загрузить файл</Button>
             <TextBox x:Name="DisabilityCertificateFile" Margin="8,0,8,0" Width="249" IsEnabled="False"/>
         </StackPanel>
 
         <StackPanel Orientation="Horizontal" x:Name="fieldOrphan" Grid.Column="1" Grid.Row="13" Margin="8,6,8,10">
             <RadioButton Margin="8,0,8,0" GroupName="Response5" Content="Да" Click="RadioButton_Click_Orphan"  />
-            <RadioButton Margin="8,0,8,0" GroupName="Response5" Content="Нет" IsChecked="True" Click="RadioButton_Click_Orphan"/>
+            <RadioButton Margin="8,0,8,0" GroupName="Response5" Content="Нет" Click="RadioButton_Click_Orphan"/>
             <Button x:Name="OrphanButton" Margin="8,0,0,0" Click="Button_Click_Orphan" IsEnabled="False">Загрузить файл</Button>
             <TextBox x:Name="OrphanFile" Margin="8,0,8,0" Width="249" IsEnabled="False"/>
         </StackPanel>
@@ -325,12 +325,12 @@
         </ComboBox>
 
         <StackPanel Orientation="Horizontal"  x:Name="fieldCertificate" Grid.Column="1" Grid.Row="15" Margin="8,6,8,10">
-            <RadioButton Margin="8,0,8,0" GroupName="Response6" Content="Оригинал" IsChecked="True" Click="RadioButton_Click_Certificate" />
+            <RadioButton Margin="8,0,8,0" GroupName="Response6" Content="Оригинал" Click="RadioButton_Click_Certificate" />
             <RadioButton Margin="8,0,8,0" GroupName="Response6" Content="Копия" Click="RadioButton_Click_Certificate"/>
         </StackPanel>
 
         <StackPanel Orientation="Horizontal" x:Name="fieldMoney" Grid.Column="1" Grid.Row="16" Margin="8,6,8,10">
-            <RadioButton Margin="8,0,8,0" GroupName="Response7" Content="Бюджет" IsChecked="True" Click="RadioButton_Click_Money" />
+            <RadioButton Margin="8,0,8,0" GroupName="Response7" Content="Бюджет" Click="RadioButton_Click_Money" />
             <RadioButton Margin="8,0,8,0" GroupName="Response7" Content="Договор об оказании платных образовательных услуг" Click="RadioButton_Click_Money"/>
         </StackPanel>
 

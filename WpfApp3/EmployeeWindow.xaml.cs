@@ -169,11 +169,11 @@ namespace WpfApp3
             RadioButton radioButton = (RadioButton)sender;
             if (radioButton.Content.Equals("Нет"))
             {
-                Employee.Enrollment = "Не зачислен";
+                Employee.Enrollment = "Не зачислен(а)";
             }
             else
             {
-                Employee.Enrollment = "Зачислен";
+                Employee.Enrollment = "Зачислен(а)";
             }
         }
 

@@ -1,7 +1,6 @@
 ﻿using System.IO;
 using System.Linq;
 using System.Windows;
-using System.Windows.Documents;
 using Microsoft.EntityFrameworkCore;
 using WpfApp3.Reports;
 
@@ -29,7 +28,8 @@ namespace WpfApp3
             db.Employee.Load();
             // и устанавливаем данные в качестве контекста
             DataContext = db.Employee.Local.ToObservableCollection();
-            
+            Result.Text = db.Employee.ToList().Count.ToString();
+
 
             if (!Directory.Exists("Reports"))
             {
@@ -66,7 +66,6 @@ namespace WpfApp3
                 Gender = employee.Gender,
                 Date_of_Birth = employee.Date_of_Birth,
                 Age = employee.Age,
-                //FullYears = employee.FullYears,
                 Citizenship = employee.Citizenship,
                 PlaceOfResidence = employee.PlaceOfResidence,
                 GraduatedFromGrades = employee.GraduatedFromGrades,
