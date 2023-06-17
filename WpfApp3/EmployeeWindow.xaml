@@ -133,7 +133,6 @@
             <TextBlock Width="500" Margin="8, 0, 0, 0">Республика Узбекистан</TextBlock>
             <TextBlock Width="500" Margin="8, 0, 0, 0">Украина</TextBlock>
             <TextBlock Width="500" Margin="8, 0, 0, 0">Иностранный гражданин</TextBlock>
-            <Button>Другое</Button>
         </ComboBox>
         
         <ComboBox  x:Name="fieldPlaceOfResidence" Grid.Column="1" VerticalContentAlignment="Center" Grid.Row="7" Margin="8,6,8,10"  Padding="0, 0, 0, 0" SelectionChanged="fieldPlaceOfResidence_SelectionChanged">
@@ -188,7 +187,7 @@
             <TextBlock Width="500" Margin="8, 0, 0, 0">Кировская область</TextBlock>
             <StackPanel x:Name="test" Width="500" Orientation="Horizontal">
                 <TextBlock Width="200" Margin="8, 0, 0, 0">Костромская область</TextBlock>
-                <ComboBox x:Name="fieldPORKostroma" Padding="0, 0, 0, 0" VerticalContentAlignment="Center" Width="300" SelectionChanged="fieldPORKostroma_SelectionChanged">
+                <ComboBox x:Name="fieldPORKostroma" Padding="0, 0, 0, 0" VerticalContentAlignment="Center" Width="300">
                     <TextBlock Width="300" Margin="8, 0, 0, 0">г.Кострома</TextBlock>
                     <TextBlock Width="300" Margin="8, 0, 0, 0">г.Буй</TextBlock>
                     <TextBlock Width="300" Margin="8, 0, 0, 0">г.Волгореченск</TextBlock>
@@ -259,7 +258,7 @@
             <TextBlock Width="500" Margin="8, 0, 0, 0">Ханты-Мансийский АО — Югра</TextBlock>
             <TextBlock Width="500" Margin="8, 0, 0, 0">Чукотский АО</TextBlock>
             <TextBlock Width="500" Margin="8, 0, 0, 0">Ямало-Ненецкий АО</TextBlock>
-            <TextBlock Width="500" Margin="8, 0, 0, 0">Иностранный гражданин</TextBlock>
+            <TextBox x:Name="Orderfield" Width="500" Margin="8, 0, 0, 0"></TextBox>
         </ComboBox>
 
         <StackPanel Orientation="Horizontal" x:Name="PanelGraduatedFromGrades" Grid.Column="1" Grid.Row="8" Margin="8,6,8,10">
@@ -315,7 +314,7 @@
             <TextBox x:Name="OrphanFile" Margin="8,0,8,0" Width="249" IsEnabled="False"/>
         </StackPanel>
 
-        <ComboBox x:Name="fieldSpeciality" Grid.Column="1" Grid.Row="14" VerticalContentAlignment="Center" Margin="8,6,8,10" SelectionChanged="fieldSpeciality_SelectionChanged">
+        <ComboBox x:Name="fieldSpeciality" Grid.Column="1" Grid.Row="14" VerticalContentAlignment="Center" Margin="8,6,8,10">
             <TextBlock Width="500" Margin="8, 0, 0, 0">«Архитектура»</TextBlock>
             <TextBlock Width="500" Margin="8, 0, 0, 0">«Гидрогеология и инженерная геология»</TextBlock>
             <TextBlock Width="500" Margin="8, 0, 0, 0">«Информационные системы и программирование»</TextBlock>
@@ -350,8 +349,8 @@
         </TextBox>
 
         <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Grid.Row="19" Grid.Column="1">
-            <Button x:Name="Accept" IsDefault="True" Click="Accept_Click" BorderBrush="#FF13EB08">OK</Button>
-            <Button IsCancel="True" BorderBrush="#FFEB0808">Отмена</Button>
+            <Button x:Name="Accept" IsDefault="True" Click="Accept_Click">OK</Button>
+            <Button IsCancel="True">Отмена</Button>
         </StackPanel>
     </Grid>
 </Window>

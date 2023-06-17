@@ -8,22 +8,22 @@
         Icon="Images/WindowIcon.png"
         mc:Ignorable="d" Height="450" Width="810" WindowStartupLocation="CenterScreen" Title="Приёмная комиссия">
     <Grid>
-        <ListBox x:Name="employeeList" ItemsSource="{Binding}" Margin="10,30,170,10">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel>
-                        <TextBlock>
-                            <Run Text="{Binding Surname}" FontSize="16"/>
-                            <Run Text="{Binding Name}" FontSize="16"/>
-                            <Run Text="{Binding Patronymic}" FontSize="16"/>
-                            <Run Text="{Binding Speciality}" FontSize="16"/>
-                            <Run Text="{Binding YearOfAdmission}" FontSize="16"/>
-                            <Run Text="{Binding Enrollment}" FontSize="16"/>
-                        </TextBlock>
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+
+        <DataGrid x:Name="employeeList"  GridLinesVisibility="None" ItemsSource="{Binding}" AutoGenerateColumns="False" Margin="10,30,170,10" Background="#fff">
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="DataGridColumnHeader">
+                    <Setter Property="FontSize" Value="16" />
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Фамилия" Binding="{Binding Surname}" FontSize="16"/>
+                <DataGridTextColumn Header="Имя" Binding="{Binding Name}" FontSize="16"/>
+                <DataGridTextColumn Header="Отчество" Binding="{Binding Patronymic}" FontSize="16"/>
+                <DataGridTextColumn Header="Специальность" Binding="{Binding Speciality}" FontSize="16"/>
+                <DataGridTextColumn Header="Год поступления" Binding="{Binding YearOfAdmission}" FontSize="16"/>
+                <DataGridTextColumn Header="Зачисление" Binding="{Binding Enrollment}" FontSize="16"/>
+            </DataGrid.Columns>
+        </DataGrid>
         <StackPanel Orientation="Vertical" Margin="0,30,10,10" Width="155" Background="#fff" HorizontalAlignment="Right">
             <Button Content="Добавить" Margin="15,10,15,10" Click="Add_Click" BorderBrush="#000"/>
             <Button Content="Изменить" Margin="15,10,15,10" Click="Edit_Click" BorderBrush="#000"/>

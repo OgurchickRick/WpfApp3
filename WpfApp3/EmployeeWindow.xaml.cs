@@ -46,37 +46,33 @@ namespace WpfApp3
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var dialog = new OpenFileDialog();
-            dialog.DefaultExt = ".png"; // Default file extension
-            dialog.Filter = "Image files (*.png;*.jpeg)|*.png;*.jpeg|All files (*.*)|*.*"; // Filter files by extension
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Файлы PDF (*.pdf)|*.pdf|Все файлы (*.*)|*.*";
+            openFileDialog.InitialDirectory = @"C:\";
 
-            // Show open file dialog box
-            bool? result = dialog.ShowDialog();
-
-            // Process open file dialog box results
+            // Отображение диалога выбора файла и обработка результата
+            bool? result = openFileDialog.ShowDialog();
             if (result == true)
             {
-                // Open document
-                string filename = dialog.FileName;
-                DisabilityCertificateFile.Text = File.ReadAllText(dialog.FileName);
+                // Получение выбранного файла
+                string selectedFileName = openFileDialog.FileName;
+                DisabilityCertificateFile.Text = selectedFileName;
             }
         }
 
         private void Button_Click_Orphan(object sender, RoutedEventArgs e)
         {
-            var dialog = new OpenFileDialog();
-            dialog.DefaultExt = ".png"; // Default file extension
-            dialog.Filter = "Image files (*.png;*.jpeg)|*.png;*.jpeg|All files (*.*)|*.*"; // Filter files by extension
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Файлы PDF (*.pdf)|*.pdf|Все файлы (*.*)|*.*";
+            openFileDialog.InitialDirectory = @"C:\";
 
-            // Show open file dialog box
-            bool? result = dialog.ShowDialog();
-
-            // Process open file dialog box results
+            // Отображение диалога выбора файла и обработка результата
+            bool? result = openFileDialog.ShowDialog();
             if (result == true)
             {
-                // Open document
-                string filename = dialog.FileName;
-                OrphanFile.Text = File.ReadAllText(dialog.FileName);
+                // Получение выбранного файла
+                string selectedFileName = openFileDialog.FileName;
+                OrphanFile.Text = selectedFileName;
             }
         }
 
@@ -191,23 +187,28 @@ namespace WpfApp3
 
         private void fieldPlaceOfResidence_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            ComboBox comboBox = (ComboBox)sender;
-            string selectedValue = comboBox.SelectedItem.ToString();
-            Employee.PlaceOfResidence = selectedValue;
-        }
-
-        private void fieldPORKostroma_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (sender == fieldPORKostroma)
+            if (fieldPlaceOfResidence.SelectedItem != null)
             {
-                Employee.PlaceOfResidence = "Костромская область " + ((TextBlock)fieldPORKostroma.SelectedItem).Text;
+                if (fieldPlaceOfResidence.SelectedItem is TextBlock textBlock)
+                {
+                    Employee.PlaceOfResidence = textBlock.Text;
+                }
+                else if (fieldPlaceOfResidence.SelectedItem is TextBox textBox)
+                {
+                    Employee.PlaceOfResidence = textBox.Text;
+                }
+                else if (fieldPlaceOfResidence.SelectedItem is StackPanel stackPanel)
+                {
+                    foreach (UIElement element in stackPanel.Children)
+                    {
+                        if (element is ComboBox innerComboBox && innerComboBox.SelectedItem is TextBlock innerTextBlock2)
+                        {
+                            Employee.PlaceOfResidence = "Костромская область " + innerTextBlock2.Text;
+                            break;
+                        }
+                    }
+                }
             }
-        }
-
-        private void fieldSpeciality_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            TextBlock selectBlock = (TextBlock)fieldSpeciality.SelectedItem;
-            Employee.Speciality = selectBlock.Text;
         }
 
         private void fieldAge_TextChanged(object sender, TextChangedEventArgs e)
