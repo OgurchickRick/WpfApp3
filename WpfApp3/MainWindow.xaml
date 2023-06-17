@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp3"
         WindowState="Maximized"
+        PreviewKeyDown="Window_PreviewKeyDown"
         Icon="Images/WindowIcon.png"
         mc:Ignorable="d" Height="450" Width="810" WindowStartupLocation="CenterScreen" Title="Приёмная комиссия">
     <Grid>

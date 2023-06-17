@@ -4,6 +4,7 @@ using System;
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
+using DocumentFormat.OpenXml.Drawing;
 
 namespace WpfApp3
 {
@@ -15,10 +16,12 @@ namespace WpfApp3
             InitializeComponent();
             Employee = employee;
             DataContext = Employee;
+            fieldSurname.Focus();
         }
 
         void Accept_Click(object sender, RoutedEventArgs e)
         {
+            int test;
             bool isError = string.IsNullOrEmpty(Employee.Surname)
                 || string.IsNullOrEmpty(Employee.Name)
                 || string.IsNullOrEmpty(Employee.Patronymic)
@@ -30,14 +33,17 @@ namespace WpfApp3
                 || string.IsNullOrEmpty(Employee.GraduatedFromGrades)
                 || string.IsNullOrEmpty(Employee.FinishedOnly)
                 || string.IsNullOrEmpty(Employee.AverageScoreOfCertificate.ToString())
-                || string.IsNullOrEmpty(Employee.Snils)
+                || string.IsNullOrEmpty(Employee.Snils) 
+                || Employee.Snils.Length != 8
+                || !int.TryParse(Employee.Snils, out test)
                 || string.IsNullOrEmpty(Employee.DisabilityCertificate)
                 || string.IsNullOrEmpty(Employee.Orphan)
                 || string.IsNullOrEmpty(Employee.Speciality)
                 || string.IsNullOrEmpty(Employee.Certificate)
                 || string.IsNullOrEmpty(Employee.Money)
                 || string.IsNullOrEmpty(Employee.Enrollment)
-                || string.IsNullOrEmpty(Employee.YearOfAdmission.ToString());
+                || string.IsNullOrEmpty(Employee.YearOfAdmission.ToString())
+                ;
             if (!isError) 
             {
                 DialogResult = true; 
@@ -213,11 +219,17 @@ namespace WpfApp3
 
         private void fieldAge_TextChanged(object sender, TextChangedEventArgs e)
         {
-            DateTime currentDate = DateTime.Now; 
-            int age = currentDate.Year - Employee.Date_of_Birth.Year; 
+            DateTime currentDate = DateTime.Now;
+            int age = currentDate.Year - Employee.Date_of_Birth.Year;
             if (Employee.Date_of_Birth > currentDate.AddYears(-age)) age--;
             fieldAge.Text = age.ToString();
             Employee.Age = age;
+        }
+
+        private void fieldSpeciality_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            TextBlock selectBlock = (TextBlock)fieldSpeciality.SelectedItem;
+            Employee.Speciality = selectBlock.Text;
         }
     }
 }

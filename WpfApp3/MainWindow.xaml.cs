@@ -1,6 +1,9 @@
-﻿using System.IO;
+﻿using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Windows;
+using System.Windows.Data;
+using System.Windows.Input;
 using Microsoft.EntityFrameworkCore;
 using WpfApp3.Reports;
 
@@ -161,6 +164,7 @@ namespace WpfApp3
             || p.PlaceOfResidence.ToLower().Contains(poiskfield.Text.ToLower())
             || p.AverageScoreOfCertificate.ToString().ToLower().Contains(poiskfield.Text.ToLower())
             || p.Money.ToLower().Contains(poiskfield.Text.ToLower())
+            || p.Age.ToString().Contains(poiskfield.Text.ToLower())
             || p.Certificate.ToString().ToLower().Contains(poiskfield.Text.ToLower())).ToList();
             DataContext = Poisk;
             Result.Text = Poisk.Count.ToString();
@@ -170,6 +174,17 @@ namespace WpfApp3
         {
             ExportToWord exportToWord = new ExportToWord();
             exportToWord.SaveToWord();
+        }
+
+        private void Window_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Escape)
+            {
+                ICollectionView dataView = CollectionViewSource.GetDefaultView(employeeList.ItemsSource);
+
+                // Сброс сортировки
+                dataView?.SortDescriptions.Clear();
+            }
         }
     }
 }

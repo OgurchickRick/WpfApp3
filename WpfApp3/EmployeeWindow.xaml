@@ -101,7 +101,7 @@
             <RadioButton Margin="8,0,8,0" GroupName="Response" Content="Женский" Click="RadioButton_Click_Gender"/>
         </StackPanel>
 
-        <DatePicker SelectedDate="{Binding Date_of_Birth}" Name="datePicker1" IsDropDownOpen="True" SelectedDateFormat="Short" Grid.Column="1" Grid.Row="4" Margin="8,0,8,10"/>
+        <DatePicker SelectedDate="{Binding Date_of_Birth}" Name="datePicker1" SelectedDateFormat="Short" Grid.Column="1" Grid.Row="4" Margin="8,0,8,10"/>
 
         <TextBox x:Name="fieldAge" Grid.Column="1" Grid.Row="5" VerticalContentAlignment="Center" Margin="8,6,8,10" TextChanged="fieldAge_TextChanged">
             <TextBox.Text>
@@ -314,7 +314,7 @@
             <TextBox x:Name="OrphanFile" Margin="8,0,8,0" Width="249" IsEnabled="False"/>
         </StackPanel>
 
-        <ComboBox x:Name="fieldSpeciality" Grid.Column="1" Grid.Row="14" VerticalContentAlignment="Center" Margin="8,6,8,10">
+        <ComboBox x:Name="fieldSpeciality" Grid.Column="1" Grid.Row="14" VerticalContentAlignment="Center" Margin="8,6,8,10" SelectionChanged="fieldSpeciality_SelectionChanged">
             <TextBlock Width="500" Margin="8, 0, 0, 0">«Архитектура»</TextBlock>
             <TextBlock Width="500" Margin="8, 0, 0, 0">«Гидрогеология и инженерная геология»</TextBlock>
             <TextBlock Width="500" Margin="8, 0, 0, 0">«Информационные системы и программирование»</TextBlock>
